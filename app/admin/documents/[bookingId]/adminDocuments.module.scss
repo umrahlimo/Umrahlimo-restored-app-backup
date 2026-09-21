@@ -1,0 +1,328 @@
+// Admin Documents View Styles
+
+.loadingState,
+.emptyState {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+    gap: 20px;
+
+    .spinner {
+        width: 50px;
+        height: 50px;
+        border: 4px solid #f3f3f3;
+        border-top: 4px solid #2c5f2d;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+    }
+
+    svg {
+        width: 80px;
+        height: 80px;
+        color: #d1d5db;
+    }
+
+    p {
+        color: #6b7280;
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    small {
+        color: #9ca3af;
+        font-size: 14px;
+    }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.documentsView {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+// Booking Header
+.bookingHeader {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+
+    .headerInfo {
+        flex: 1;
+
+        h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+
+        p {
+            font-size: 15px;
+            color: #6b7280;
+            margin: 4px 0;
+        }
+
+        .route {
+            font-weight: 600;
+            color: #2c5f2d;
+        }
+    }
+
+    .headerStatus {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 8px;
+
+        .statusBadge {
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+
+            &.pending {
+                background: #fef3c7;
+                color: #92400e;
+            }
+
+            &.submitted {
+                background: #dbeafe;
+                color: #1e40af;
+            }
+
+            &.verified {
+                background: #d1fae5;
+                color: #065f46;
+            }
+
+            &.rejected {
+                background: #fee2e2;
+                color: #991b1b;
+            }
+        }
+
+        small {
+            font-size: 12px;
+            color: #9ca3af;
+        }
+    }
+}
+
+// Action Buttons
+.actionButtons {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+
+    button {
+        flex: 1;
+        padding: 14px 24px;
+        border: none;
+        border-radius: 12px;
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+
+        svg {
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    .verifyBtn {
+        background: #2c5f2d;
+        color: white;
+
+        &:hover {
+            background: #1e4620;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(44, 95, 45, 0.3);
+        }
+    }
+
+    .rejectBtn {
+        background: #fee2e2;
+        color: #991b1b;
+
+        &:hover {
+            background: #fecaca;
+        }
+    }
+}
+
+// Passengers Grid
+.passengersGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.passengerDocCard {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    border: 2px solid #e5e7eb;
+    transition: all 0.3s;
+
+    &:hover {
+        border-color: #2c5f2d;
+        box-shadow: 0 4px 20px rgba(44, 95, 45, 0.15);
+    }
+
+    .passengerHeader {
+        padding-bottom: 16px;
+        margin-bottom: 16px;
+        border-bottom: 2px solid #e5e7eb;
+
+        h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+    }
+
+    .passengerInfo {
+        margin-bottom: 20px;
+
+        .infoRow {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #f3f4f6;
+
+            &:last-child {
+                border-bottom: none;
+            }
+
+            .label {
+                font-size: 13px;
+                color: #6b7280;
+                font-weight: 600;
+            }
+
+            .value {
+                font-size: 14px;
+                color: #1a1a1a;
+                font-weight: 600;
+                text-align: right;
+            }
+        }
+    }
+
+    .documentsGrid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+
+    .documentItem {
+        background: #f9fafb;
+        border-radius: 12px;
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        .docHeader {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            svg {
+                width: 24px;
+                height: 24px;
+                color: #2c5f2d;
+            }
+
+            span {
+                font-size: 13px;
+                font-weight: 600;
+                color: #374151;
+            }
+        }
+
+        .viewBtn {
+            padding: 10px 16px;
+            background: #2c5f2d;
+            color: white;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.2s;
+
+            &:hover {
+                background: #1e4620;
+                transform: translateY(-1px);
+            }
+        }
+    }
+}
+
+// Rejection Notice
+.rejectionNotice {
+    background: #fee2e2;
+    border-left: 4px solid #dc2626;
+    border-radius: 12px;
+    padding: 20px;
+
+    h4 {
+        font-size: 16px;
+        font-weight: 700;
+        color: #991b1b;
+        margin-bottom: 8px;
+    }
+
+    p {
+        font-size: 14px;
+        color: #991b1b;
+        line-height: 1.6;
+    }
+}
+
+// Responsive
+@media (max-width: 1024px) {
+    .passengersGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .bookingHeader {
+        flex-direction: column;
+
+        .headerStatus {
+            align-items: flex-start;
+        }
+    }
+
+    .actionButtons {
+        flex-direction: column;
+    }
+
+    .passengerDocCard {
+        .documentsGrid {
+            grid-template-columns: 1fr;
+        }
+    }
+}

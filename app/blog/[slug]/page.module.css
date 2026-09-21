@@ -1,0 +1,114 @@
+.page {
+  min-height: 100vh;
+  background: #f8fafc;
+}
+
+.main {
+  padding: 120px 20px 40px;
+}
+
+.article {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.08);
+}
+
+.article h1 {
+  margin: 0 0 18px;
+  color: #0f172a;
+  font-size: clamp(1.7rem, 3vw, 2.3rem);
+}
+
+.heroImage {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  object-fit: cover;
+}
+
+.excerpt {
+  color: #475569;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  margin-bottom: 14px;
+  font-style: italic;
+}
+
+.content {
+  color: #1e293b;
+  line-height: 1.85;
+}
+
+.content h1, .content h2, .content h3, .content h4, .content h5, .content h6 {
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  color: #0f172a;
+}
+
+.content p {
+  margin-bottom: 1em;
+}
+
+.content a {
+  color: #b45309;
+  text-decoration: underline;
+}
+
+.content a:hover {
+  color: #92400e;
+}
+
+.content ul, .content ol {
+  margin-left: 20px;
+  margin-bottom: 1em;
+}
+
+.content li {
+  margin-bottom: 0.5em;
+}
+
+.content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5em;
+}
+
+.content th, .content td {
+  border: 1px solid #e2e8f0;
+  padding: 12px;
+  text-align: left;
+}
+
+.content th {
+  background-color: #f8fafc;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 1em 0;
+}
+
+.backLink {
+  display: inline-block;
+  margin-top: 24px;
+  color: #b45309;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.state {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 16px;
+  padding: 28px;
+  text-align: center;
+}

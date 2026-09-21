@@ -1,0 +1,1228 @@
+.vehiclesPage {
+  min-height: 100vh;
+  background: #f1f5f9;
+}
+
+/* Trip Summary Header */
+.tripSummary {
+  background: linear-gradient(135deg, #1a1a2e 0%, #C9A227 100%);
+  padding: 100px 20px 30px;
+}
+
+.summaryContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.tripDetails {
+  flex: 1;
+  min-width: 300px;
+}
+
+.tripType {
+  margin-bottom: 15px;
+}
+
+.typeBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  padding: 8px 16px;
+  border-radius: 50px;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.typeBadge svg {
+  width: 18px;
+  height: 18px;
+}
+
+.routeInfo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.seoRouteHeading {
+  margin: 16px 0 0;
+  color: #fef3c7;
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.seoAssistBlocks {
+  max-width: 1400px;
+  margin: 16px auto;
+  padding: 0 20px;
+}
+
+.locationPoint {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  margin-top: 4px;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.3);
+}
+
+.dot.destination {
+  background: #10b981;
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.3);
+}
+
+.locationPoint .label {
+  display: block;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.locationPoint .location {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  max-width: 300px;
+  word-break: break-word;
+}
+
+.routeLine {
+  flex: 1;
+  min-width: 60px;
+  max-width: 150px;
+  height: 2px;
+  background: linear-gradient(90deg, #fff, rgba(255, 255, 255, 0.3));
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.distanceBadge {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.multiCityRoute {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.multiCityInfo {
+  margin-top: 10px;
+}
+
+.multiCityHint {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.95rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 12px 16px;
+  border-radius: 10px;
+  border-left: 3px solid #10b981;
+}
+
+.multiStop {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #fff;
+  font-size: 0.95rem;
+}
+
+.stopNum {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.stopDate {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.85rem;
+}
+
+/* Multi-City Trip Tabs */
+.tripTabs {
+  background: #fff;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 20px;
+}
+
+.tabsContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.tabsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.tabsHeader h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.selectionProgress {
+  font-size: 0.9rem;
+  color: #6b7280;
+  background: #f3f4f6;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+.tabsList {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+.tripTab {
+  flex: 0 0 auto;
+  min-width: 220px;
+  background: #f8fafc;
+  border: 2px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.tripTab:hover {
+  border-color: #C9A227;
+  background: #fffbeb;
+}
+
+.tripTab.active {
+  border-color: #C9A227;
+  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+  box-shadow: 0 4px 15px rgba(201, 162, 39, 0.15);
+}
+
+.tripTab.hasVehicle {
+  border-color: #10b981;
+}
+
+.tripTab.hasVehicle .tabHeader {
+  color: #059669;
+}
+
+.tabHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.tripNumber {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #374151;
+}
+
+.checkmark {
+  width: 20px;
+  height: 20px;
+  background: #10b981;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+}
+
+.tabRoute {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.tabFrom,
+.tabTo {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1f2937;
+  max-width: 80px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tabRoute svg {
+  width: 16px;
+  height: 16px;
+  color: #9ca3af;
+  flex-shrink: 0;
+}
+
+.tabMeta {
+  display: flex;
+  gap: 12px;
+  font-size: 0.8rem;
+  color: #6b7280;
+  margin-bottom: 8px;
+}
+
+.tabDistance {
+  font-size: 0.8rem;
+  color: #C9A227;
+  font-weight: 600;
+  background: rgba(201, 162, 39, 0.1);
+  padding: 4px 10px;
+  border-radius: 6px;
+  display: inline-block;
+}
+
+.selectedVehiclePreview {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.selectedVehiclePreview img {
+  width: 50px;
+  height: 35px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.selectedVehiclePreview span {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.tripMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: center;
+}
+
+.metaItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 10px 16px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+.metaItem svg {
+  width: 18px;
+  height: 18px;
+  opacity: 0.8;
+}
+
+.editBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #fff;
+  color: #C9A227;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.editBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.editBtn svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Main Content */
+.mainContent {
+  padding: 30px 20px 60px;
+}
+
+.contentContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 30px;
+}
+
+/* Vehicles Panel */
+.vehiclesPanel {
+  background: #fff;
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Route Match Banner */
+.routeMatchBanner {
+  padding: 14px 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.routeMatchBanner.matched {
+  background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+  border: 1px solid #bbf7d0;
+  color: #166534;
+}
+
+.routeMatchBanner.unmatched {
+  background: linear-gradient(135deg, #fffbeb, #fef3c7);
+  border: 1px solid #fde68a;
+  color: #92400e;
+}
+
+.routeMatchBanner svg {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.routeMatchContent {
+  flex: 1;
+}
+
+.routeMatchContent strong {
+  display: block;
+  font-size: 0.95rem;
+  margin-bottom: 2px;
+}
+
+.routeMatchContent p {
+  margin: 0;
+  font-size: 0.85rem;
+  opacity: 0.85;
+}
+
+.vehiclesHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.vehiclesHeader h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.vehiclesHeader .subtitle {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #64748b;
+  margin-top: 4px;
+}
+
+.sortDropdown {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sortDropdown label {
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+.sortDropdown select {
+  padding: 10px 16px;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  color: #1e293b;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sortDropdown select:focus {
+  outline: none;
+  border-color: #C9A227;
+}
+
+.categoryFilters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.filterLabel {
+  font-size: 0.9rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.filterBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border: 2px solid #e2e8f0;
+  border-radius: 50px;
+  background: #fff;
+  font-size: 0.9rem;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filterBtn:hover {
+  border-color: #C9A227;
+  color: #C9A227;
+}
+
+.filterBtn.active {
+  background: #C9A227;
+  border-color: #C9A227;
+  color: #fff;
+}
+
+/* Vehicles List */
+.vehiclesList {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.vehicleCard {
+  display: flex;
+  background: #fff;
+  border: 2px solid #e2e8f0;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.vehicleCard:hover {
+  border-color: #C9A227;
+  box-shadow: 0 8px 25px rgba(201, 162, 39, 0.15);
+}
+
+.vehicleCard.selected {
+  border-color: #C9A227;
+  background: linear-gradient(135deg, rgba(201, 162, 39, 0.05) 0%, rgba(184, 148, 42, 0.05) 100%);
+  box-shadow: 0 8px 25px rgba(201, 162, 39, 0.2);
+}
+
+.vehicleImage {
+  width: 270px;
+  min-height: 190px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f8fafc 0%, #eef2f7 100%);
+  padding: 10px;
+  border-right: 1px solid #e2e8f0;
+}
+
+.vehicleImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.categoryBadge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  padding: 4px 10px;
+  border-radius: 20px;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.selectedBadge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #C9A227;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  animation: popIn 0.3s ease;
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+.selectedBadge svg {
+  width: 20px;
+  height: 20px;
+}
+
+.galleryThumbs {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  display: flex;
+  gap: 6px;
+  z-index: 4;
+}
+
+.galleryThumb {
+  width: 40px;
+  height: 30px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  overflow: hidden;
+  padding: 0;
+  background: rgba(15, 23, 42, 0.75);
+  cursor: pointer;
+}
+
+.galleryThumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.galleryThumb.active {
+  border-color: #C9A227;
+  box-shadow: 0 0 0 2px rgba(201, 162, 39, 0.35);
+}
+
+.vehicleContent {
+  flex: 1;
+  padding: 16px 22px 16px 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.vehicleHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.vehicleHeader h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.vehicleYear {
+  background: #f1f5f9;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.vehicleSpecs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+.specItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  color: #475569;
+}
+
+.specItem svg {
+  width: 18px;
+  height: 18px;
+  color: #C9A227;
+}
+
+.vehicleFeatures {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.feature {
+  font-size: 0.8rem;
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.1);
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.vehicleFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.ownerInfo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+.ownerInfo svg {
+  width: 18px;
+  height: 18px;
+}
+
+.priceInfo {
+  text-align: right;
+}
+
+.priceLabel {
+  display: block;
+  font-size: 0.75rem;
+  color: #64748b;
+  text-transform: uppercase;
+}
+
+.priceAmount {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #C9A227;
+}
+
+/* Loading & Empty States */
+.loadingSpinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  gap: 15px;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #e2e8f0;
+  border-top-color: #C9A227;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loadingSpinner p {
+  color: #64748b;
+  font-size: 0.95rem;
+}
+
+.noVehicles {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.noVehicles svg {
+  width: 60px;
+  height: 60px;
+  color: #cbd5e1;
+  margin-bottom: 15px;
+}
+
+.noVehicles h3 {
+  font-size: 1.25rem;
+  color: #1e293b;
+  margin-bottom: 8px;
+}
+
+.noVehicles p {
+  color: #64748b;
+  margin-bottom: 20px;
+}
+
+.noVehicles button {
+  background: #C9A227;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.noVehicles button:hover {
+  background: #b8942a;
+}
+
+/* Side Panel */
+.sidePanel {
+  position: sticky;
+  top: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.map {
+  width: 100%;
+  height: 250px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.bookingPanel {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.bookingHeader {
+  background: linear-gradient(135deg, #C9A227 0%, #b8942a 100%);
+  padding: 15px 20px;
+}
+
+.bookingHeader h4 {
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.selectedVehicle {
+  display: flex;
+  gap: 15px;
+  padding: 15px 20px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.selectedVehicle img {
+  width: 80px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.selectedVehicle h5 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 4px;
+}
+
+.selectedVehicle p {
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.bookingDetails {
+  padding: 15px 20px;
+}
+
+.detailRow {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 0.9rem;
+}
+
+.detailRow:last-child {
+  border-bottom: none;
+}
+
+.detailRow span:first-child {
+  color: #64748b;
+}
+
+.detailRow span:last-child {
+  color: #1e293b;
+  font-weight: 500;
+}
+
+.detailRow.total {
+  padding-top: 15px;
+  margin-top: 5px;
+  border-top: 2px solid #e2e8f0;
+  border-bottom: none;
+}
+
+.detailRow.total span:first-child {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.totalPrice {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #C9A227 !important;
+}
+
+.proceedBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: calc(100% - 40px);
+  margin: 0 20px 20px;
+  padding: 16px;
+  background: linear-gradient(135deg, #C9A227 0%, #b8942a 100%);
+  border: none;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.proceedBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(201, 162, 39, 0.4);
+}
+
+.proceedBtn.disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
+
+.proceedBtn.disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.proceedBtn.loading {
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+.proceedBtn:disabled {
+  cursor: not-allowed;
+}
+
+.proceedBtn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.btnSpinner {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: proceedBtnSpin 0.8s linear infinite;
+}
+
+@keyframes proceedBtnSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Multi-City Booking Summary */
+.bookingHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tripCount {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.multiCitySummary {
+  padding: 15px 20px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.tripSummaryItem {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 12px;
+}
+
+.tripSummaryItem:last-child {
+  margin-bottom: 0;
+}
+
+.tripSummaryItem.complete {
+  border-color: #10b981;
+  background: #f0fdf4;
+}
+
+.tripSummaryHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.tripNum {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #374151;
+}
+
+.tripStatus {
+  font-size: 0.75rem;
+  color: #10b981;
+  font-weight: 600;
+}
+
+.tripStatusPending {
+  font-size: 0.75rem;
+  color: #f59e0b;
+  font-weight: 600;
+}
+
+.tripSummaryRoute {
+  font-size: 0.9rem;
+  color: #4b5563;
+  margin-bottom: 8px;
+}
+
+.tripVehicleInfo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-top: 8px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.tripVehicleInfo img {
+  width: 50px;
+  height: 35px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.tripVehicleInfo .vehicleName {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.tripVehicleInfo .vehiclePrice {
+  display: block;
+  font-size: 0.8rem;
+  color: #C9A227;
+  font-weight: 600;
+}
+
+.selectPrompt {
+  background: #fff;
+  border-radius: 16px;
+  padding: 40px 20px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.selectPrompt svg {
+  width: 50px;
+  height: 50px;
+  color: #cbd5e1;
+  margin-bottom: 15px;
+}
+
+.selectPrompt p {
+  color: #64748b;
+  font-size: 0.95rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1100px) {
+  .contentContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .sidePanel {
+    position: relative;
+    top: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .map {
+    height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .summaryContainer {
+    flex-direction: column;
+  }
+
+  .routeInfo {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .routeLine {
+    display: none;
+  }
+
+  .tripMeta {
+    width: 100%;
+  }
+
+  .sidePanel {
+    grid-template-columns: 1fr;
+  }
+
+  .vehicleCard {
+    flex-direction: column;
+  }
+
+  .vehicleImage {
+    width: 100%;
+    height: 220px;
+    min-height: 220px;
+    padding: 8px;
+    border-right: none;
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  .galleryThumbs {
+    left: 8px;
+    bottom: 8px;
+    gap: 4px;
+  }
+
+  .galleryThumb {
+    width: 36px;
+    height: 27px;
+  }
+
+  .vehiclesHeader {
+    flex-direction: column;
+  }
+
+  .sortDropdown {
+    width: 100%;
+  }
+
+  .sortDropdown select {
+    flex: 1;
+  }
+}
+
+@media (max-width: 500px) {
+  .tripSummary {
+    padding: 90px 15px 20px;
+  }
+
+  .metaItem {
+    font-size: 0.8rem;
+    padding: 8px 12px;
+  }
+
+  .vehiclesPanel {
+    padding: 15px;
+    border-radius: 12px;
+  }
+
+  .categoryFilters {
+    gap: 8px;
+  }
+
+  .filterBtn {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+  }
+}

@@ -1,0 +1,952 @@
+// ========================================
+// Auth Pages - Premium Split-Screen Design
+// Login, Signup, Forgot Password
+// ========================================
+
+// Variables
+$gold: #C9A227;
+$gold-light: #E0C068;
+$gold-dark: #9E7B1B;
+$black: #1a1a1a;
+$white: #ffffff;
+$gray-light: #f8f9fa;
+
+// Wrapper — full-page dark background so PortalNavbar transparent state looks perfect
+.authPageWrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, #0f172a 0%, #0f2744 55%, #1a1a2e 100%);
+  position: relative;
+  overflow: hidden;
+
+  // Ambient glow accents
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 10% 90%, rgba(20, 184, 166, 0.10) 0%, transparent 45%),
+      radial-gradient(circle at 90% 10%, rgba(201, 162, 39, 0.08) 0%, transparent 45%),
+      radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.04) 0%, transparent 65%);
+    pointer-events: none;
+    z-index: 0;
+  }
+}
+
+// Main Container - Split Screen
+.authPage {
+  flex: 1;
+  display: flex;
+  align-items: stretch;
+  position: relative;
+  z-index: 1;
+  padding-top: 80px; // height of fixed PortalNavbar
+  min-height: 100vh;
+}
+
+// Left Side - Brand Showcase (40%)
+.brandShowcase {
+  width: 42%;
+  min-height: 100%;
+  background: linear-gradient(160deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.02) 100%);
+  backdrop-filter: blur(2px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 50px;
+  position: relative;
+  overflow: hidden;
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+
+  // Decorative glow
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 70%, rgba($gold, 0.09) 0%, transparent 50%),
+      radial-gradient(circle at 70% 30%, rgba(20, 184, 166, 0.06) 0%, transparent 50%);
+    animation: floatPattern 20s ease-in-out infinite;
+  }
+
+  // Golden accent line
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, rgba($gold, 0.5), transparent);
+  }
+}
+
+@keyframes floatPattern {
+
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(-20px, -20px);
+  }
+}
+
+.brandContent {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 450px;
+}
+
+.brandLogo {
+  margin-bottom: 40px;
+
+  img {
+    height: 80px;
+    width: auto;
+    filter: drop-shadow(0 4px 20px rgba($gold, 0.3));
+  }
+}
+
+.brandTagline {
+  h2 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: $white;
+    margin-bottom: 16px;
+    line-height: 1.25;
+    letter-spacing: -0.5px;
+
+    span {
+      background: linear-gradient(90deg, $gold, $gold-light);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  }
+
+  p {
+    font-size: 1rem;
+    color: rgba($white, 0.6);
+    line-height: 1.75;
+    margin-bottom: 36px;
+  }
+}
+
+.brandFeatures {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 18px 25px;
+  background: rgba($white, 0.05);
+  border: 1px solid rgba($white, 0.08);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba($white, 0.08);
+    border-color: rgba($gold, 0.3);
+    transform: translateX(5px);
+  }
+
+  .featureIcon {
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(135deg, $gold 0%, $gold-dark 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      width: 22px;
+      height: 22px;
+      fill: $white;
+    }
+  }
+
+  .featureText {
+    h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: $white;
+      margin-bottom: 3px;
+    }
+
+    p {
+      font-size: 0.85rem;
+      color: rgba($white, 0.6);
+      margin: 0;
+    }
+  }
+}
+
+// Right Side - Auth Form
+.authFormSide {
+  width: 58%;
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 60px;
+  position: relative;
+}
+
+.authWrapper {
+  width: 100%;
+  max-width: 520px;
+  animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.signupWrapper {
+  max-width: 580px;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Auth Card - Premium Glass Card
+.authCard {
+  background: rgba(255, 255, 255, 0.97);
+  border-radius: 28px;
+  padding: 44px 48px;
+  box-shadow:
+    0 40px 100px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #14b8a6, $gold, $gold-light, #14b8a6);
+    background-size: 200% 100%;
+    animation: shimmer 4s linear infinite;
+  }
+
+  &.signupCard {
+    padding: 35px 40px;
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 200% 0%; }
+}
+
+.cardHeader {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.iconWrapper {
+  width: 65px;
+  height: 65px;
+  background: linear-gradient(135deg, $gold 0%, $gold-dark 100%);
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 18px;
+  box-shadow: 0 10px 30px rgba($gold, 0.3);
+
+  svg {
+    width: 30px;
+    height: 30px;
+    color: $white;
+  }
+}
+
+.cardHeader h1 {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: $black;
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
+}
+
+.cardHeader p {
+  color: #64748b;
+  font-size: 1rem;
+}
+
+// Loading
+.loadingContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  width: 100%;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba($gold, 0.2);
+  border-top-color: $gold;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Error Alert
+.errorAlert {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 20px;
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.08), rgba(220, 38, 38, 0.05));
+  border: 1px solid rgba(239, 68, 68, 0.15);
+  border-radius: 16px;
+  margin-bottom: 28px;
+  animation: shake 0.4s ease-out;
+
+  svg {
+    width: 24px;
+    height: 24px;
+    color: #dc2626;
+    flex-shrink: 0;
+  }
+
+  span {
+    color: #dc2626;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+}
+
+@keyframes shake {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  20%,
+  60% {
+    transform: translateX(-6px);
+  }
+
+  40%,
+  80% {
+    transform: translateX(6px);
+  }
+}
+
+// Form
+.authForm {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.inputRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #374151;
+    letter-spacing: 0.2px;
+  }
+}
+
+.inputWrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 16px;
+  background: #f9fafb;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  svg {
+    width: 20px;
+    height: 20px;
+    color: #9ca3af;
+    flex-shrink: 0;
+    transition: color 0.3s ease;
+  }
+
+  input {
+    flex: 1;
+    padding: 14px 0;
+    background: transparent;
+    border: none;
+    font-size: 0.95rem;
+    color: $black;
+
+    &:focus {
+      outline: none;
+    }
+
+    &::placeholder {
+      color: #9ca3af;
+    }
+  }
+
+  &:focus-within {
+    border-color: $gold;
+    background: $white;
+    box-shadow: 0 0 0 4px rgba($gold, 0.1);
+
+    svg {
+      color: $gold;
+    }
+  }
+
+  &.error {
+    border-color: #ef4444;
+    background: rgba(239, 68, 68, 0.02);
+
+    svg {
+      color: #ef4444;
+    }
+  }
+}
+
+// Phone Input
+.phoneInputWrapper {
+  display: flex;
+  gap: 10px;
+
+  select {
+    padding: 14px 14px;
+    background: #f9fafb;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    color: $black;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 105px;
+
+    &:focus {
+      outline: none;
+      border-color: $gold;
+      background: $white;
+    }
+  }
+
+  input {
+    flex: 1;
+    padding: 14px 16px;
+    background: #f9fafb;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    color: $black;
+    transition: all 0.3s ease;
+
+    &:focus {
+      outline: none;
+      border-color: $gold;
+      background: $white;
+      box-shadow: 0 0 0 4px rgba($gold, 0.1);
+    }
+
+    &::placeholder {
+      color: #9ca3af;
+    }
+  }
+
+  &.error {
+
+    input,
+    select {
+      border-color: #ef4444;
+    }
+  }
+}
+
+.togglePassword {
+  background: none;
+  border: none;
+  padding: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: rgba($gold, 0.1);
+  }
+
+  svg {
+    width: 22px;
+    height: 22px;
+    color: #94a3b8;
+    transition: color 0.3s ease;
+  }
+
+  &:hover svg {
+    color: $gold;
+  }
+}
+
+.errorText {
+  font-size: 0.8rem;
+  color: #ef4444;
+  margin-top: -6px;
+}
+
+.forgotPassword {
+  text-align: right;
+  margin-top: -10px;
+
+  a {
+    font-size: 0.9rem;
+    color: $gold-dark;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $gold;
+    }
+  }
+}
+
+// Terms Checkbox
+.termsCheckbox {
+  margin-top: 8px;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: #64748b;
+  line-height: 1.6;
+
+  input {
+    display: none;
+  }
+
+  a {
+    color: $gold-dark;
+    text-decoration: none;
+    font-weight: 600;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.checkmark {
+  width: 24px;
+  height: 24px;
+  border: 2px solid #cbd5e1;
+  border-radius: 8px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  margin-top: 2px;
+
+  &::after {
+    content: '';
+    width: 7px;
+    height: 11px;
+    border: solid $white;
+    border-width: 0 2.5px 2.5px 0;
+    transform: rotate(45deg) scale(0);
+    transition: transform 0.2s ease;
+  }
+}
+
+.checkboxLabel input:checked+.checkmark {
+  background: linear-gradient(135deg, $gold 0%, $gold-dark 100%);
+  border-color: $gold;
+
+  &::after {
+    transform: rotate(45deg) scale(1);
+  }
+}
+
+// Submit Button
+.submitBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  padding: 18px 28px;
+  background: linear-gradient(135deg, $gold 0%, $gold-dark 100%);
+  color: $white;
+  font-size: 1.05rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-top: 12px;
+  box-shadow: 0 8px 25px rgba($gold, 0.35);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba($white, 0.2), transparent);
+    transition: left 0.5s ease;
+  }
+
+  &:hover:not(:disabled)::before {
+    left: 100%;
+  }
+
+  svg {
+    width: 22px;
+    height: 22px;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba($gold, 0.45);
+
+    svg {
+      transform: translateX(4px);
+    }
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+}
+
+.btnSpinner {
+  width: 22px;
+  height: 22px;
+  border: 2.5px solid rgba($white, 0.3);
+  border-top-color: $white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+// Divider
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin: 28px 0;
+
+  &::before,
+  &::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #e2e8f0, transparent);
+  }
+
+  span {
+    font-size: 0.9rem;
+    color: #94a3b8;
+    white-space: nowrap;
+    font-weight: 500;
+  }
+}
+
+// Google Button
+.googleBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  width: 100%;
+  padding: 16px 28px;
+  background: $white;
+  color: $black;
+  font-size: 1rem;
+  font-weight: 600;
+  border: 2px solid #e2e8f0;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  &:hover:not(:disabled) {
+    border-color: #cbd5e1;
+    background: #f8fafc;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+}
+
+// Switch Auth
+.switchAuth {
+  text-align: center;
+  margin-top: 28px;
+  font-size: 0.95rem;
+  color: #64748b;
+
+  a {
+    color: $gold-dark;
+    font-weight: 700;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+// Success State
+.successState {
+  text-align: center;
+  padding: 25px 0;
+}
+
+.successIcon {
+  width: 90px;
+  height: 90px;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 28px;
+  animation: scaleIn 0.4s ease-out;
+  box-shadow: 0 15px 40px rgba(16, 185, 129, 0.3);
+
+  svg {
+    width: 45px;
+    height: 45px;
+    color: $white;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.successState h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: $black;
+  margin-bottom: 12px;
+}
+
+.successState p {
+  color: #64748b;
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+.emailSent {
+  display: block;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: $gold-dark;
+  margin-bottom: 22px;
+}
+
+.instructions {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  max-width: 320px;
+  margin: 0 auto 28px;
+  line-height: 1.7;
+}
+
+.backToLogin {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 32px;
+  background: linear-gradient(135deg, $gold 0%, $gold-dark 100%);
+  color: $white;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 14px;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba($gold, 0.3);
+
+  svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba($gold, 0.4);
+  }
+}
+
+.resendBtn {
+  display: block;
+  margin: 22px auto 0;
+  background: none;
+  border: none;
+  color: #64748b;
+  font-size: 0.9rem;
+  cursor: pointer;
+
+  &:hover {
+    color: $gold-dark;
+    text-decoration: underline;
+  }
+}
+
+// ========================================
+// Responsive Styles
+// ========================================
+@media (max-width: 1024px) {
+  .brandShowcase {
+    width: 45%;
+    padding: 40px;
+  }
+
+  .authFormSide {
+    width: 55%;
+  }
+
+  .brandTagline h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .authPage {
+    flex-direction: column;
+    min-height: auto;
+    padding-top: 90px;
+  }
+
+  .brandShowcase {
+    display: none;
+  }
+
+  .authFormSide {
+    width: 100%;
+    min-height: auto;
+    padding: 30px 20px;
+  }
+
+  .authCard {
+    padding: 40px 30px;
+    border-radius: 24px;
+  }
+
+  .inputRow {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .authFormSide {
+    padding: 20px 15px;
+  }
+
+  .authCard {
+    padding: 35px 25px;
+
+    &.signupCard {
+      padding: 30px 22px;
+    }
+  }
+
+  .cardHeader h1 {
+    font-size: 1.5rem;
+  }
+
+  .iconWrapper {
+    width: 65px;
+    height: 65px;
+
+    svg {
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  .inputWrapper input {
+    padding: 16px 0;
+    font-size: 0.95rem;
+  }
+
+  .submitBtn {
+    padding: 16px 24px;
+    font-size: 1rem;
+  }
+
+  .phoneInputWrapper {
+    flex-direction: column;
+
+    select {
+      width: 100%;
+    }
+  }
+}

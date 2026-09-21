@@ -1,0 +1,1883 @@
+/* ========================================
+UmrahLimo Booking Page - Professional Design
+Modern, Clean & Fully Responsive
+======================================== */
+
+// Enhanced Color Palette
+$primary: #1D6F42;
+$primary-light: #22C55E;
+$primary-dark: #15803D;
+$gold: #C9A227;
+$gold-light: #E0C068;
+$gold-dark: #9E7B1B;
+$dark: #1F2937;
+$dark-light: #374151;
+$gray-900: #111827;
+$gray-800: #1F2937;
+$gray-700: #374151;
+$gray-600: #4B5563;
+$gray-500: #6B7280;
+$gray-400: #9CA3AF;
+$gray-300: #D1D5DB;
+$gray-200: #E5E7EB;
+$gray-100: #F3F4F6;
+$gray-50: #F9FAFB;
+$white: #ffffff;
+$red: #DC2626;
+$red-light: #FEE2E2;
+$green-light: #F0FDF4;
+$blue: #3B82F6;
+$blue-light: #EFF6FF;
+
+// Shadows & Effects
+$shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+$shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+$shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+$shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+$shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+// Main Container
+.bookingPage {
+  all: initial !important;
+  display: block !important;
+  min-height: 100vh !important;
+  width: 100% !important;
+  background: transparent !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+  font-size: 16px !important;
+  color: $dark !important;
+  line-height: 1.6 !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+  position: relative !important;
+}
+
+// ==========================================
+// HEADER - Enhanced Professional Design
+// ==========================================
+
+.bookingHeader {
+  all: initial !important;
+  display: block !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 9999 !important;
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+  height: 80px !important;
+  font-family: inherit !important;
+  box-shadow: $shadow-lg !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.headerContent {
+  all: initial !important;
+  display: flex !important;
+  max-width: 1400px !important;
+  margin: 0 auto !important;
+  padding: 0 32px !important;
+  height: 80px !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  font-family: inherit !important;
+}
+
+.logo {
+  all: initial !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+  font-family: inherit !important;
+  transition: transform 0.2s ease !important;
+  
+  &:hover {
+    transform: scale(1.02) !important;
+  }
+}
+
+.logoIcon {
+  all: initial !important;
+  font-size: 32px !important;
+  line-height: 1 !important;
+  display: block !important;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1)) !important;
+}
+
+.logoText {
+  all: initial !important;
+  font-size: 24px !important;
+  font-weight: 800 !important;
+  color: $primary !important;
+  font-family: inherit !important;
+  display: block !important;
+  letter-spacing: -0.5px !important;
+}
+
+.headerNav {
+  all: initial !important;
+  display: flex !important;
+  gap: 40px !important;
+  font-family: inherit !important;
+  
+  a {
+    all: initial !important;
+    display: inline-block !important;
+    text-decoration: none !important;
+    color: $gray-700 !important;
+    font-weight: 600 !important;
+    font-size: 15px !important;
+    cursor: pointer !important;
+    font-family: inherit !important;
+    transition: all 0.2s ease !important;
+    position: relative !important;
+    padding: 8px 16px !important;
+    border-radius: 8px !important;
+    
+    &::after {
+      content: '' !important;
+      position: absolute !important;
+      bottom: 0 !important;
+      left: 50% !important;
+      width: 0 !important;
+      height: 2px !important;
+      background: linear-gradient(90deg, $primary, $gold) !important;
+      transition: all 0.3s ease !important;
+      transform: translateX(-50%) !important;
+      border-radius: 1px !important;
+    }
+    
+    &:hover {
+      color: $primary !important;
+      background: rgba(29, 111, 66, 0.05) !important;
+      
+      &::after {
+        width: 60% !important;
+      }
+    }
+    
+    &.active {
+      color: $primary !important;
+      background: rgba(29, 111, 66, 0.1) !important;
+      
+      &::after {
+        width: 60% !important;
+      }
+    }
+  }
+}
+
+// ==========================================
+// HERO SECTION - Enhanced Design
+// ==========================================
+
+.bookingHero {
+  all: initial !important;
+  display: flex !important;
+  position: sticky !important;
+  top: 0px !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 999 !important;
+  min-height: auto !important;
+  padding: 20px 0 !important;
+  width: 100% !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-family: inherit !important;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+  box-sizing: border-box !important;
+}
+
+.heroBackground {
+  all: initial !important;
+  display: none !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: linear-gradient(135deg, 
+    rgba(29, 111, 66, 0.03) 0%, 
+    rgba(34, 197, 94, 0.05) 25%,
+    rgba(201, 162, 39, 0.03) 50%,
+    rgba(29, 111, 66, 0.02) 100%) !important;
+  z-index: 0 !important;
+}
+
+.gradientOverlay {
+  all: initial !important;
+  display: none !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: radial-gradient(ellipse at center, 
+    rgba(255, 255, 255, 0.8) 0%, 
+    rgba(255, 255, 255, 0.95) 100%) !important;
+}
+
+.heroContent {
+  all: initial !important;
+  display: block !important;
+  position: relative !important;
+  z-index: 1 !important;
+  text-align: center !important;
+  max-width: 1000px !important;
+  width: 100% !important;
+  font-family: inherit !important;
+  padding: 0 24px !important;
+  
+  h1 {
+    display: none !important; // Hide title in sticky mode
+  }
+  
+  > p {
+    display: none !important; // Hide subtitle in sticky mode
+  }
+
+  .seoRouteHeading {
+    all: initial !important;
+    display: block !important;
+    margin: 0 0 16px !important;
+    font-family: inherit !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    color: $primary !important;
+    text-align: center !important;
+    line-height: 1.4 !important;
+  }
+}
+
+// ==========================================
+// SEARCH BAR - Premium Design
+// ==========================================
+
+.searchBarWrapper {
+  all: initial !important;
+  display: block !important;
+  width: 100% !important;
+  max-width: 960px !important;
+  margin: 0 auto !important;
+  font-family: inherit !important;
+}
+
+.offerContainer {
+  all: initial !important;
+  display: block !important;
+  width: 100% !important;
+  max-width: 1280px !important;
+  margin: 16px auto 0 !important;
+  padding: 0 24px !important;
+  font-family: inherit !important;
+}
+
+.searchBar {
+  all: initial !important;
+  display: flex !important;
+  align-items: center !important;
+  background: $white !important;
+  border-radius: 24px !important;
+  box-shadow: $shadow-2xl !important;
+  padding: 8px 8px 8px 24px !important;
+  border: 1px solid rgba(0, 0, 0, 0.06) !important;
+  font-family: inherit !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  position: relative !important;
+  
+  &::before {
+    content: '' !important;
+    position: absolute !important;
+    inset: 0 !important;
+    border-radius: 24px !important;
+    padding: 1px !important;
+    background: linear-gradient(135deg, $primary, $gold) !important;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0) !important;
+    mask-composite: xor !important;
+    -webkit-mask-composite: xor !important;
+    opacity: 0 !important;
+    transition: opacity 0.3s ease !important;
+  }
+  
+  &:hover {
+    box-shadow: 0 32px 64px -12px rgba(0, 0, 0, 0.25) !important;
+    transform: translateY(-2px) !important;
+    
+    &::before {
+      opacity: 1 !important;
+    }
+  }
+  
+  &:focus-within {
+    box-shadow: 0 32px 64px -12px rgba(29, 111, 66, 0.25) !important;
+    
+    &::before {
+      opacity: 1 !important;
+    }
+  }
+}
+
+.searchField {
+  all: initial !important;
+  display: flex !important;
+  align-items: center !important;
+  flex: 1 !important;
+  min-width: 0 !important;
+  padding: 16px 0 !important;
+  font-family: inherit !important;
+  position: relative !important;
+}
+
+.fromField { flex: 1.2 !important; }
+.toField { flex: 1.2 !important; }
+
+.fieldIcon {
+  all: initial !important;
+  display: flex !important;
+  width: 24px !important;
+  height: 24px !important;
+  margin-right: 16px !important;
+  flex-shrink: 0 !important;
+  align-items: center !important;
+  justify-content: center !important;
+  
+  svg {
+    width: 20px !important;
+    height: 20px !important;
+    display: block !important;
+  }
+}
+
+.fromIcon { color: $primary !important; }
+.toIcon { color: $gold !important; }
+
+.fieldContent {
+  all: initial !important;
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 !important;
+  min-width: 0 !important;
+  font-family: inherit !important;
+  
+  label {
+    all: initial !important;
+    display: block !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    color: $gray-500 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.8px !important;
+    margin-bottom: 4px !important;
+    font-family: inherit !important;
+  }
+  
+  input {
+    all: initial !important;
+    display: block !important;
+    width: 100% !important;
+    border: none !important;
+    outline: none !important;
+    background: transparent !important;
+    font-size: 16px !important;
+    color: $dark !important;
+    font-weight: 600 !important;
+    font-family: inherit !important;
+    line-height: 1.4 !important;
+    
+    &::placeholder {
+      color: $gray-400 !important;
+      font-weight: 400 !important;
+    }
+    
+    &:focus {
+      color: $primary !important;
+    }
+  }
+}
+
+.fieldDivider {
+  all: initial !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 16px !important;
+  position: relative !important;
+  
+  &::before, &::after {
+    content: '' !important;
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    width: 1px !important;
+    height: 40px !important;
+    background: linear-gradient(to bottom, transparent, $gray-200, transparent) !important;
+  }
+  
+  &::before { left: 0 !important; }
+  &::after { right: 0 !important; }
+}
+
+.swapButton {
+  all: initial !important;
+  display: flex !important;
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50% !important;
+  border: 2px solid $gray-200 !important;
+  background: $white !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  color: $gray-500 !important;
+  box-shadow: $shadow-sm !important;
+  
+  &:hover {
+    background: $primary !important;
+    border-color: $primary !important;
+    color: $white !important;
+    transform: rotate(180deg) scale(1.1) !important;
+    box-shadow: $shadow-lg !important;
+  }
+  
+  svg {
+    width: 18px !important;
+    height: 18px !important;
+    display: block !important;
+  }
+}
+
+.searchButton {
+  all: initial !important;
+  display: inline-flex !important;
+  background: linear-gradient(135deg, $primary 0%, $primary-dark 100%) !important;
+  color: $white !important;
+  border: none !important;
+  border-radius: 20px !important;
+  padding: 16px 32px !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  white-space: nowrap !important;
+  margin-left: 8px !important;
+  box-shadow: 0 8px 25px rgba(29, 111, 66, 0.4) !important;
+  font-family: inherit !important;
+  letter-spacing: 0.5px !important;
+  
+  &:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 12px 35px rgba(29, 111, 66, 0.5) !important;
+    background: linear-gradient(135deg, $primary-light 0%, $primary 100%) !important;
+  }
+  
+  &:active {
+    transform: translateY(-1px) !important;
+  }
+}
+
+// ==========================================
+// RESULTS SECTION - Enhanced Layout
+// ==========================================
+
+.resultsSection {
+  all: initial !important;
+  display: block !important;
+  flex: 1 !important;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%) !important;
+  font-family: inherit !important;
+  padding: 32px 0 80px !important; // Extra bottom padding for footer spacing
+  width: 100% !important;
+  min-height: calc(100vh - 300px) !important;
+}
+
+.resultsContainer {
+  all: initial !important;
+  display: flex !important;
+  flex-direction: row !important;
+  max-width: 1600px !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+  padding: 0 32px !important;
+  gap: 24px !important;
+  font-family: inherit !important;
+  box-sizing: border-box !important;
+  align-items: flex-start !important;
+}
+
+// ==========================================
+// LEFT PANEL - Vehicles List (Enhanced)
+// ==========================================
+
+.vehiclesPanel {
+  all: initial !important;
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 0 0 60% !important;
+  max-width: 60% !important;
+  width: 60% !important;
+  background: $white !important;
+  border-radius: 20px !important;
+  overflow: visible !important;
+  font-family: inherit !important;
+  box-shadow: $shadow-xl !important;
+  border: 1px solid rgba(0, 0, 0, 0.05) !important;
+  box-sizing: border-box !important;
+  position: relative !important; // Not sticky - scrolls with page
+}
+
+.vehiclesHeader {
+  all: initial !important;
+  display: flex !important;
+  padding: 16px 20px !important;
+  background: $white !important;
+  border-bottom: 1px solid $gray-200 !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  flex-shrink: 0 !important;
+  font-family: inherit !important;
+}
+
+.routeSummary {
+  all: initial !important;
+  display: block !important;
+  flex: 1 !important;
+  font-family: inherit !important;
+  
+  h2 {
+    all: initial !important;
+    display: block !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    color: $dark !important;
+    margin-bottom: 8px !important;
+    line-height: 1.2 !important;
+    font-family: inherit !important;
+  }
+}
+
+.routeInfoText {
+  all: initial !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  margin-bottom: 8px !important;
+  font-family: inherit !important;
+}
+
+.routePath {
+  all: initial !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  flex-shrink: 0 !important;
+}
+
+.fromDot {
+  all: initial !important;
+  display: block !important;
+  width: 8px !important;
+  height: 8px !important;
+  border-radius: 50% !important;
+  background: $primary !important;
+}
+
+.routeLineH {
+  all: initial !important;
+  display: block !important;
+  width: 20px !important;
+  height: 2px !important;
+  background: linear-gradient(90deg, $primary, $gold) !important;
+  border-radius: 1px !important;
+}
+
+.toDot {
+  all: initial !important;
+  display: block !important;
+  width: 8px !important;
+  height: 8px !important;
+  border-radius: 50% !important;
+  background: $gold !important;
+}
+
+.routeLocationsText {
+  all: initial !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 4px !important;
+  min-width: 0 !important;
+  font-family: inherit !important;
+}
+
+.locFrom, .locTo {
+  all: initial !important;
+  display: block !important;
+  font-size: 11px !important;
+  color: $gray-600 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  max-width: 200px !important;
+  line-height: 1.3 !important;
+  font-family: inherit !important;
+  font-weight: 500 !important;
+}
+
+.routeStatsMini {
+  all: initial !important;
+  display: flex !important;
+  gap: 8px !important;
+  font-family: inherit !important;
+}
+
+.statBadge {
+  all: initial !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  padding: 4px 10px !important;
+  background: $green-light !important;
+  border-radius: 12px !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  color: $primary-dark !important;
+  font-family: inherit !important;
+  
+  svg {
+    width: 12px !important;
+    height: 12px !important;
+    display: block !important;
+  }
+}
+
+.resetBtn {
+  all: initial !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  background: $gray-100 !important;
+  border: 1px solid $gray-200 !important;
+  padding: 6px 12px !important;
+  border-radius: 8px !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  color: $gray-600 !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  flex-shrink: 0 !important;
+  font-family: inherit !important;
+  
+  &:hover {
+    background: $red-light !important;
+    color: $red !important;
+    border-color: rgba(220, 38, 38, 0.2) !important;
+  }
+  
+  svg {
+    width: 16px !important;
+    height: 16px !important;
+    display: block !important;
+  }
+}
+
+// Category Filters - Enhanced
+.categoryFilters {
+  all: initial !important;
+  display: flex !important;
+  padding: 12px 20px !important;
+  align-items: center !important;
+  gap: 8px !important;
+  background: $gray-50 !important;
+  border-bottom: 1px solid $gray-200 !important;
+  flex-shrink: 0 !important;
+  flex-wrap: wrap !important;
+  font-family: inherit !important;
+}
+
+.filterLabel {
+  all: initial !important;
+  display: inline-block !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  color: $gray-500 !important;
+  margin-right: 4px !important;
+  font-family: inherit !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.3px !important;
+}
+
+.filterBtn {
+  all: initial !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  padding: 5px 10px !important;
+  border-radius: 16px !important;
+  border: 1px solid $gray-200 !important;
+  background: $white !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  color: $gray-600 !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  font-family: inherit !important;
+  
+  &:hover {
+    border-color: $primary !important;
+    color: $primary !important;
+    background: rgba(29, 111, 66, 0.05) !important;
+  }
+}
+
+.active {
+  background: $primary !important;
+  border-color: $primary !important;
+  color: $white !important;
+  
+  &:hover {
+    background: $primary-dark !important;
+    color: $white !important;
+  }
+}
+
+// Vehicles List - Premium Cards (No internal scroll)
+.vehiclesList {
+  all: initial !important;
+  display: block !important;
+  padding: 20px !important;
+  background: linear-gradient(135deg, $gray-50 0%, $white 100%) !important;
+  font-family: inherit !important;
+}
+
+.vehicleCard {
+  all: initial !important;
+  display: flex !important;
+  flex-direction: row !important;
+  background: $white !important;
+  border-radius: 16px !important;
+  border: 1px solid $gray-200 !important;
+  margin-bottom: 16px !important;
+  overflow: hidden !important;
+  cursor: pointer !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-shadow: $shadow-sm !important;
+  font-family: inherit !important;
+  position: relative !important;
+  
+  &:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: $shadow-lg !important;
+    border-color: $primary !important;
+  }
+}
+
+.selected {
+  border-color: $primary !important;
+  box-shadow: 0 8px 24px rgba(29, 111, 66, 0.15) !important;
+  background: linear-gradient(135deg, rgba(29, 111, 66, 0.02) 0%, rgba(255, 255, 255, 1) 100%) !important;
+}
+
+.vehicleImage {
+  all: initial !important;
+  display: block !important;
+  position: relative !important;
+  width: 260px !important;
+  min-width: 260px !important;
+  height: 170px !important;
+  padding: 8px !important;
+  flex-shrink: 0 !important;
+  background: linear-gradient(135deg, $gray-50 0%, $gray-100 100%) !important;
+  border-right: 1px solid $gray-200 !important;
+  overflow: hidden !important;
+  
+  img {
+    all: initial !important;
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    transition: transform 0.3s ease !important;
+  }
+  
+  &:hover img {
+    transform: scale(1.02) !important;
+  }
+}
+
+.vehicleCategoryBadge {
+  all: initial !important;
+  display: inline-block !important;
+  position: absolute !important;
+  top: 8px !important;
+  left: 8px !important;
+  background: linear-gradient(135deg, $primary 0%, $primary-dark 100%) !important;
+  color: $white !important;
+  font-size: 9px !important;
+  font-weight: 700 !important;
+  padding: 3px 8px !important;
+  border-radius: 4px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  font-family: inherit !important;
+}
+
+.vehicleContent {
+  all: initial !important;
+  display: flex !important;
+  flex-direction: row !important;
+  flex: 1 !important;
+  padding: 18px 24px 18px 30px !important;
+  min-width: 0 !important;
+  font-family: inherit !important;
+  align-items: center !important;
+  gap: 18px !important;
+}
+
+.vehicleMainInfo {
+  all: initial !important;
+  display: block !important;
+  flex: 1 !important;
+  min-width: 0 !important;
+  font-family: inherit !important;
+  
+  h3 {
+    all: initial !important;
+    display: block !important;
+    font-size: 18px !important;
+    font-weight: 800 !important;
+    color: $dark !important;
+    margin-bottom: 10px !important;
+    line-height: 1.3 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    font-family: inherit !important;
+    letter-spacing: -0.3px !important;
+  }
+}
+
+.vehicleSpecs {
+  all: initial !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 12px !important;
+  margin-bottom: 10px !important;
+  font-family: inherit !important;
+}
+
+.specItem {
+  all: initial !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+  font-size: 13px !important;
+  color: $gray-600 !important;
+  font-family: inherit !important;
+  font-weight: 500 !important;
+  
+  svg {
+    width: 16px !important;
+    height: 16px !important;
+    color: $gray-400 !important;
+    display: block !important;
+  }
+}
+
+.vehicleOwnerInfo {
+  all: initial !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  flex-wrap: wrap !important;
+  font-family: inherit !important;
+}
+
+.ownerBadge {
+  all: initial !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+  font-size: 12px !important;
+  color: $gray-600 !important;
+  background: linear-gradient(135deg, $gray-100 0%, $gray-50 100%) !important;
+  padding: 4px 10px !important;
+  border-radius: 8px !important;
+  font-family: inherit !important;
+  font-weight: 500 !important;
+  border: 1px solid $gray-200 !important;
+  
+  svg {
+    width: 14px !important;
+    height: 14px !important;
+    color: $gray-400 !important;
+    display: block !important;
+  }
+}
+
+.plateBadge {
+  all: initial !important;
+  display: inline-block !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  color: $gray-700 !important;
+  background: linear-gradient(135deg, $gray-200 0%, $gray-100 100%) !important;
+  padding: 4px 8px !important;
+  border-radius: 4px !important;
+  font-family: 'Courier New', monospace !important;
+  border: 1px solid $gray-300 !important;
+}
+
+.vehiclePriceSection {
+  all: initial !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-end !important;
+  justify-content: center !important;
+  min-width: 120px !important;
+  padding-left: 16px !important;
+  border-left: 1px solid $gray-200 !important;
+  flex-shrink: 0 !important;
+  font-family: inherit !important;
+  gap: 8px !important;
+}
+
+.priceDisplay {
+  all: initial !important;
+  display: block !important;
+  text-align: right !important;
+  font-family: inherit !important;
+}
+
+.priceLabel {
+  all: initial !important;
+  display: block !important;
+  font-size: 10px !important;
+  color: $gray-500 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  margin-bottom: 2px !important;
+  font-family: inherit !important;
+  font-weight: 600 !important;
+}
+
+.priceAmount {
+  all: initial !important;
+  display: block !important;
+  font-size: 18px !important;
+  font-weight: 800 !important;
+  color: $primary !important;
+  font-family: inherit !important;
+  letter-spacing: -0.3px !important;
+}
+
+.selectVehicleBtn {
+  all: initial !important;
+  display: inline-flex !important;
+  background: linear-gradient(135deg, $primary 0%, $primary-dark 100%) !important;
+  color: $white !important;
+  border: none !important;
+  padding: 8px 16px !important;
+  border-radius: 8px !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-shadow: 0 2px 8px rgba(29, 111, 66, 0.25) !important;
+  font-family: inherit !important;
+  letter-spacing: 0.3px !important;
+  
+  &:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(29, 111, 66, 0.4) !important;
+    background: linear-gradient(135deg, $primary-light 0%, $primary 100%) !important;
+  }
+}
+
+.vehicleCard.selected .selectVehicleBtn {
+  background: linear-gradient(135deg, $gold 0%, $gold-dark 100%) !important;
+  box-shadow: 0 4px 15px rgba(201, 162, 39, 0.3) !important;
+  
+  &:hover {
+    background: linear-gradient(135deg, $gold-light 0%, $gold 100%) !important;
+    box-shadow: 0 8px 25px rgba(201, 162, 39, 0.4) !important;
+  }
+}
+
+// ==========================================
+// RIGHT PANEL - Map & Booking (Enhanced)
+// ==========================================
+
+.mapPanel {
+  all: initial !important;
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 0 0 40% !important;
+  max-width: 40% !important;
+  width: 40% !important;
+  background: $white !important;
+  border-radius: 20px !important;
+  overflow: hidden !important;
+  position: sticky !important;
+  top: 120px !important; // Below sticky search bar (search bar ~100px + gap)
+  font-family: inherit !important;
+  box-shadow: $shadow-xl !important;
+  border: 1px solid rgba(0, 0, 0, 0.05) !important;
+  height: fit-content !important;
+  max-height: calc(100vh - 140px) !important;
+  box-sizing: border-box !important;
+  align-self: flex-start !important;
+}
+
+.googleMap {
+  all: initial !important;
+  display: block !important;
+  width: 100% !important;
+  height: 350px !important;
+  min-height: 350px !important;
+  background: #e5e3df !important;
+  border-radius: 20px 20px 0 0 !important;
+}
+
+// Enhanced Booking Panel
+.bookingPanel {
+  all: initial !important;
+  display: block !important;
+  background: $white !important;
+  padding: 20px !important;
+  border-top: 1px solid $gray-200 !important;
+  flex-shrink: 0 !important;
+  font-family: inherit !important;
+  max-height: 400px !important;
+  overflow-y: auto !important;
+}
+
+.bookingPanelHeader {
+  all: initial !important;
+  display: block !important;
+  font-family: inherit !important;
+  margin-bottom: 16px !important;
+  
+  h4 {
+    all: initial !important;
+    display: block !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    color: $dark !important;
+    margin-bottom: 0 !important;
+    line-height: 1.2 !important;
+    font-family: inherit !important;
+  }
+}
+
+.selectedVehicleInfo {
+  all: initial !important;
+  display: flex !important;
+  gap: 12px !important;
+  align-items: center !important;
+  padding: 12px !important;
+  background: $gray-50 !important;
+  border-radius: 12px !important;
+  border: 1px solid $gray-200 !important;
+  margin-bottom: 16px !important;
+  font-family: inherit !important;
+  
+  img {
+    all: initial !important;
+    display: block !important;
+    width: 60px !important;
+    height: 45px !important;
+    object-fit: cover !important;
+    border-radius: 8px !important;
+    background: $gray-100 !important;
+    flex-shrink: 0 !important;
+  }
+}
+
+.selectedDetails {
+  all: initial !important;
+  display: block !important;
+  min-width: 0 !important;
+  font-family: inherit !important;
+}
+
+.selectedName {
+  all: initial !important;
+  display: block !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  color: $dark !important;
+  margin-bottom: 2px !important;
+  line-height: 1.3 !important;
+  font-family: inherit !important;
+}
+
+.selectedCapacity {
+  all: initial !important;
+  display: block !important;
+  font-size: 11px !important;
+  color: $gray-600 !important;
+  font-family: inherit !important;
+  font-weight: 500 !important;
+}
+
+.selectedOwner {
+  all: initial !important;
+  display: block !important;
+  font-size: 10px !important;
+  color: $gray-500 !important;
+  font-family: inherit !important;
+}
+
+.bookingRoute {
+  all: initial !important;
+  display: block !important;
+  position: relative !important;
+  padding: 12px !important;
+  background: $gray-50 !important;
+  border-radius: 12px !important;
+  border: 1px solid $gray-200 !important;
+  margin-bottom: 16px !important;
+  font-family: inherit !important;
+}
+
+.bookingRouteItem {
+  all: initial !important;
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 12px !important;
+  margin-bottom: 12px !important;
+  font-family: inherit !important;
+  position: relative !important;
+  
+  &:last-child {
+    margin-bottom: 0 !important;
+  }
+}
+
+.routeDot {
+  all: initial !important;
+  display: block !important;
+  width: 12px !important;
+  height: 12px !important;
+  border-radius: 50% !important;
+  margin-top: 4px !important;
+  flex-shrink: 0 !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+.from { 
+  background: $primary !important;
+  box-shadow: 0 0 0 3px rgba(29, 111, 66, 0.2) !important;
+}
+
+.to { 
+  background: $gold !important;
+  box-shadow: 0 0 0 3px rgba(201, 162, 39, 0.2) !important;
+}
+
+.bookingRouteLine {
+  all: initial !important;
+  display: block !important;
+  position: absolute !important;
+  left: 18px !important;
+  top: 18px !important;
+  bottom: 18px !important;
+  width: 2px !important;
+  background: linear-gradient(to bottom, $primary, $gold) !important;
+  border-radius: 1px !important;
+}
+
+.routeLabel {
+  all: initial !important;
+  display: block !important;
+  font-size: 9px !important;
+  font-weight: 700 !important;
+  color: $gray-500 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  margin-bottom: 2px !important;
+  font-family: inherit !important;
+}
+
+.routeAddress {
+  all: initial !important;
+  display: block !important;
+  font-size: 12px !important;
+  color: $gray-700 !important;
+  line-height: 1.3 !important;
+  word-break: break-word !important;
+  font-family: inherit !important;
+  font-weight: 500 !important;
+}
+
+.bookingSummary {
+  all: initial !important;
+  display: block !important;
+  background: $gray-50 !important;
+  border-radius: 12px !important;
+  padding: 12px !important;
+  margin-bottom: 16px !important;
+  font-family: inherit !important;
+  border: 1px solid $gray-200 !important;
+}
+
+.summaryRow {
+  all: initial !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  font-size: 12px !important;
+  color: $gray-600 !important;
+  padding: 6px 0 !important;
+  font-family: inherit !important;
+  font-weight: 500 !important;
+  
+  span {
+    display: block !important;
+  }
+}
+
+.total {
+  border-top: 1px solid $gray-200 !important;
+  margin-top: 6px !important;
+  padding-top: 10px !important;
+  font-weight: 700 !important;
+  color: $dark !important;
+  font-size: 13px !important;
+}
+
+.totalPrice {
+  all: initial !important;
+  display: block !important;
+  font-size: 16px !important;
+  font-weight: 800 !important;
+  color: $primary !important;
+  font-family: inherit !important;
+}
+
+.confirmBookingBtn {
+  all: initial !important;
+  display: flex !important;
+  width: 100% !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  background: linear-gradient(135deg, $primary 0%, $primary-dark 100%) !important;
+  color: $white !important;
+  border: none !important;
+  border-radius: 10px !important;
+  padding: 12px 20px !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-shadow: 0 4px 15px rgba(29, 111, 66, 0.3) !important;
+  font-family: inherit !important;
+  
+  &:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(29, 111, 66, 0.4) !important;
+    background: linear-gradient(135deg, $primary-light 0%, $primary 100%) !important;
+  }
+  
+  &:active {
+    transform: translateY(-1px) !important;
+  }
+  
+  svg {
+    width: 16px !important;
+    height: 16px !important;
+    display: block !important;
+  }
+}
+
+// ==========================================
+// LOADING & EMPTY STATES - Enhanced
+// ==========================================
+
+.loadingSpinner {
+  all: initial !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 60px !important;
+  gap: 16px !important;
+  font-family: inherit !important;
+  
+  p {
+    all: initial !important;
+    display: block !important;
+    color: $gray-600 !important;
+    font-size: 14px !important;
+    font-family: inherit !important;
+    font-weight: 500 !important;
+  }
+}
+
+.spinner {
+  all: initial !important;
+  display: block !important;
+  width: 40px !important;
+  height: 40px !important;
+  border: 3px solid $gray-200 !important;
+  border-top-color: $primary !important;
+  border-radius: 50% !important;
+  animation: spin 1s linear infinite !important;
+}
+
+// ==========================================
+// ANIMATIONS & TRANSITIONS
+// ==========================================
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+// Apply animations to elements
+.bookingHeader {
+  animation: slideInFromTop 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.heroContent {
+  animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s both !important;
+}
+
+.searchBarWrapper {
+  animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.4s both !important;
+}
+
+.vehiclesPanel {
+  animation: fadeInLeft 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.3s both !important;
+}
+
+.mapPanel {
+  animation: fadeInRight 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.4s both !important;
+}
+
+.vehicleCard {
+  animation: fadeInUp 0.4s cubic-bezier(0.4, 0, 0.2, 1) both !important;
+  
+  &:nth-child(1) { animation-delay: 0.1s !important; }
+  &:nth-child(2) { animation-delay: 0.2s !important; }
+  &:nth-child(3) { animation-delay: 0.3s !important; }
+  &:nth-child(4) { animation-delay: 0.4s !important; }
+  &:nth-child(5) { animation-delay: 0.5s !important; }
+}
+
+// Enhanced loading state with shimmer effect
+.loadingSpinner {
+  .spinner {
+    position: relative !important;
+    overflow: hidden !important;
+    
+    &::after {
+      content: '' !important;
+      position: absolute !important;
+      top: 0 !important;
+      right: 0 !important;
+      bottom: 0 !important;
+      left: 0 !important;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent) !important;
+      animation: shimmer 1.5s infinite !important;
+    }
+  }
+}
+
+// Skeleton loading for vehicle cards
+.vehicleCardSkeleton {
+  all: initial !important;
+  display: flex !important;
+  flex-direction: row !important;
+  background: $white !important;
+  border-radius: 20px !important;
+  margin-bottom: 20px !important;
+  overflow: hidden !important;
+  box-shadow: $shadow-md !important;
+  font-family: inherit !important;
+  
+  .skeletonImage {
+    width: 180px !important;
+    height: 140px !important;
+    background: linear-gradient(90deg, $gray-200 25%, $gray-100 50%, $gray-200 75%) !important;
+    background-size: 200px 100% !important;
+    animation: shimmer 1.5s infinite !important;
+  }
+  
+  .skeletonContent {
+    flex: 1 !important;
+    padding: 20px 24px !important;
+    
+    .skeletonLine {
+      height: 16px !important;
+      background: linear-gradient(90deg, $gray-200 25%, $gray-100 50%, $gray-200 75%) !important;
+      background-size: 200px 100% !important;
+      border-radius: 8px !important;
+      margin-bottom: 12px !important;
+      animation: shimmer 1.5s infinite !important;
+      
+      &.short { width: 60% !important; }
+      &.medium { width: 80% !important; }
+      &.long { width: 100% !important; }
+    }
+  }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+// ==========================================
+// MICRO-INTERACTIONS & HOVER EFFECTS
+// ==========================================
+
+// Enhanced button hover effects
+.searchButton, .selectVehicleBtn, .confirmBookingBtn {
+  position: relative !important;
+  overflow: hidden !important;
+  
+  &::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: -100% !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent) !important;
+    transition: left 0.5s !important;
+  }
+  
+  &:hover::before {
+    left: 100% !important;
+  }
+}
+
+// Card hover glow effect
+.vehicleCard {
+  &:hover {
+    &::after {
+      content: '' !important;
+      position: absolute !important;
+      inset: -2px !important;
+      border-radius: 20px !important;
+      background: linear-gradient(135deg, $primary, $gold) !important;
+      z-index: -1 !important;
+      opacity: 0.1 !important;
+      filter: blur(10px) !important;
+    }
+  }
+}
+
+// Interactive elements pulse on focus
+.searchField input:focus + .fieldIcon,
+.swapButton:focus,
+.filterBtn:focus {
+  animation: pulse 1s ease-in-out !important;
+}
+
+// Smooth transitions for all interactive elements within booking page
+.bookingPage {
+  * {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  }
+}
+
+// Enhanced focus states
+.searchField input:focus,
+.filterBtn:focus,
+.selectVehicleBtn:focus,
+.confirmBookingBtn:focus {
+  outline: 2px solid $primary !important;
+  outline-offset: 2px !important;
+}
+
+// Accessibility improvements
+@media (prefers-reduced-motion: reduce) {
+  .bookingPage {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+// Dark mode support (future enhancement)
+@media (prefers-color-scheme: dark) {
+  .bookingPage {
+    // Dark mode styles will be implemented in future updates
+    // This media query is prepared for dark mode support
+    color: $white !important;
+  }
+}
+
+.noVehicles {
+  all: initial !important;
+  display: block !important;
+  text-align: center !important;
+  padding: 80px 32px !important;
+  font-family: inherit !important;
+  
+  svg {
+    width: 64px !important;
+    height: 64px !important;
+    color: $gray-300 !important;
+    margin-bottom: 20px !important;
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  
+  p {
+    all: initial !important;
+    display: block !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    color: $gray-600 !important;
+    margin-bottom: 8px !important;
+    font-family: inherit !important;
+  }
+  
+  span {
+    all: initial !important;
+    display: block !important;
+    font-size: 14px !important;
+    color: $gray-500 !important;
+    font-family: inherit !important;
+  }
+}
+
+// ==========================================
+// EMPTY SECTION - When no search results
+// ==========================================
+
+.emptySection {
+  all: initial !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: calc(100vh - 400px) !important;
+  padding: 80px 32px !important;
+  font-family: inherit !important;
+  background: transparent !important;
+}
+
+.emptyContent {
+  all: initial !important;
+  display: block !important;
+  text-align: center !important;
+  font-family: inherit !important;
+  
+  p {
+    all: initial !important;
+    display: block !important;
+    font-size: 16px !important;
+    color: $gray-500 !important;
+    font-family: inherit !important;
+    font-weight: 500 !important;
+  }
+}
+
+// ==========================================
+// MAP SECTION (Before Search)
+// ==========================================
+
+.mapSection {
+  all: initial !important;
+  display: none !important;
+  flex: 1 !important;
+  padding: 0 32px 40px !important;
+  font-family: inherit !important;
+}
+
+.mapContainer {
+  all: initial !important;
+  display: none !important;
+  max-width: 1400px !important;
+  margin: 0 auto !important;
+  border-radius: 24px !important;
+  overflow: hidden !important;
+  box-shadow: $shadow-2xl !important;
+  border: 1px solid rgba(0, 0, 0, 0.05) !important;
+  
+  .googleMap {
+    height: 400px !important;
+    border-radius: 24px !important;
+  }
+}
+
+// ==========================================
+// FOOTER - Enhanced
+// ==========================================
+
+.bookingFooter {
+  all: initial !important;
+  display: block !important;
+  background: linear-gradient(135deg, $dark 0%, $dark-light 100%) !important;
+  padding: 32px !important;
+  text-align: center !important;
+  flex-shrink: 0 !important;
+  font-family: inherit !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.1) !important;
+  
+  p {
+    all: initial !important;
+    display: block !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+    font-size: 14px !important;
+    font-family: inherit !important;
+    text-align: center !important;
+    margin: 0 !important;
+    font-weight: 500 !important;
+  }
+}
+
+// ==========================================
+// RESPONSIVE DESIGN - Enhanced
+// ==========================================
+
+@media (max-width: 1200px) {
+  .resultsContainer {
+    flex-direction: column !important;
+    gap: 24px !important;
+  }
+  
+  .vehiclesPanel {
+    flex: 1 1 100% !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    max-height: none !important;
+  }
+  
+  .mapPanel {
+    flex: 1 1 100% !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    position: relative !important;
+    top: 0 !important;
+    min-height: 400px !important;
+    max-height: none !important;
+  }
+  
+  .googleMap {
+    height: 350px !important;
+    min-height: 350px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .bookingHero {
+    position: relative !important;
+    top: 0 !important;
+    padding: 20px !important;
+  }
+  
+  .headerContent {
+    padding: 0 20px !important;
+  }
+  
+  .heroContent h1 {
+    font-size: 32px !important;
+  }
+  
+  .heroContent > p {
+    font-size: 16px !important;
+  }
+  
+  .searchBar {
+    flex-direction: column !important;
+    border-radius: 20px !important;
+    padding: 20px !important;
+    gap: 16px !important;
+  }
+  
+  .searchField {
+    width: 100% !important;
+    padding: 16px 0 !important;
+    border-bottom: 1px solid $gray-200 !important;
+  }
+  
+  .toField {
+    border-bottom: none !important;
+  }
+  
+  .fieldDivider {
+    width: 100% !important;
+    padding: 0 !important;
+    justify-content: flex-end !important;
+    
+    &::before, &::after {
+      display: none !important;
+    }
+  }
+  
+  .searchButton {
+    width: 100% !important;
+    margin-left: 0 !important;
+    justify-content: center !important;
+    padding: 18px 32px !important;
+  }
+  
+  .resultsContainer {
+    padding: 0 20px !important;
+  }
+  
+  .vehiclesHeader {
+    padding: 20px !important;
+  }
+  
+  .vehiclesList {
+    padding: 20px !important;
+  }
+  
+  .vehicleCard {
+    flex-direction: column !important;
+  }
+  
+  .vehicleImage {
+    width: 100% !important;
+    height: 210px !important;
+    min-width: 0 !important;
+    border-right: none !important;
+    border-bottom: 1px solid $gray-200 !important;
+  }
+  
+  .vehicleContent {
+    flex-direction: column !important;
+    gap: 16px !important;
+  }
+  
+  .vehiclePriceSection {
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    border-left: none !important;
+    border-top: 1px solid $gray-200 !important;
+    padding-left: 0 !important;
+    padding-top: 16px !important;
+    margin-top: 0 !important;
+    width: 100% !important;
+    min-width: auto !important;
+  }
+  
+  .mapSection {
+    padding: 0 20px 20px !important;
+  }
+  
+  .bookingFooter {
+    padding: 24px 20px !important;
+  }
+  
+  .categoryFilters {
+    padding: 16px 20px !important;
+    gap: 8px !important;
+  }
+  
+  .filterBtn {
+    font-size: 12px !important;
+    padding: 6px 12px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroContent h1 {
+    font-size: 28px !important;
+  }
+  
+  .vehiclesHeader {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 16px !important;
+  }
+  
+  .routeInfoText {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+  }
+  
+  .routeStatsMini {
+    flex-wrap: wrap !important;
+  }
+  
+  .bookingPanel {
+    padding: 20px !important;
+  }
+  
+  .confirmBookingBtn {
+    padding: 14px 20px !important;
+    font-size: 15px !important;
+  }
+}

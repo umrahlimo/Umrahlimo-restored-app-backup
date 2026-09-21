@@ -1,0 +1,823 @@
+/* ========================================
+   REDESIGNED PROFILE PAGE - ULTRA MODERN
+   Gold & Black Premium Theme
+   ======================================== */
+
+$gold: #C9A227;
+$gold-light: #E0C068;
+$gold-dark: #9E7B1B;
+$black: #1a1a1a;
+$white: #ffffff;
+
+.profilePage {
+  animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Profile Header - Split Design */
+.profileHeader {
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+/* Left Card - Avatar & Basic Info */
+.profileCard {
+  background: linear-gradient(135deg, $black 0%, #0a0a0a 100%);
+  border-radius: 24px;
+  padding: 40px 30px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    background: linear-gradient(135deg, rgba($gold, 0.15), rgba($gold-light, 0.08));
+    border-radius: 24px 24px 0 0;
+  }
+}
+
+.avatarSection {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 25px;
+}
+
+.avatarWrapper {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.avatar, .avatarImage {
+  width: 130px;
+  height: 130px;
+  background: linear-gradient(135deg, $gold 0%, $gold-light 50%, $gold-dark 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $white;
+  font-size: 3rem;
+  font-weight: 900;
+  border: 5px solid rgba($white, 0.15);
+  box-shadow: 0 15px 40px rgba($gold, 0.3), 0 0 0 10px rgba($gold, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.avatarImage {
+  background: $white;
+  padding: 0;
+}
+
+.avatarImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.avatarBadge {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, #10b981, #059669);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid $black;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+  z-index: 3;
+  
+  svg {
+    width: 18px;
+    height: 18px;
+    color: $white;
+  }
+}
+
+.avatarEdit {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.uploadBtn, .removeBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  
+  svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+.uploadBtn {
+  background: linear-gradient(135deg, $gold, $gold-light);
+  color: $white;
+  box-shadow: 0 4px 15px rgba($gold, 0.3);
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba($gold, 0.4);
+  }
+}
+
+.removeBtn {
+  background: rgba($white, 0.1);
+  color: rgba($white, 0.8);
+  border: 1px solid rgba($white, 0.2);
+  
+  &:hover {
+    background: rgba(239, 68, 68, 0.2);
+    color: #ef4444;
+    border-color: #ef4444;
+  }
+}
+
+.userBasicInfo {
+  h1 {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: $white;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+  }
+  
+  p {
+    color: rgba($white, 0.6);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+  }
+}
+
+.memberBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: rgba($gold, 0.15);
+  color: $gold-light;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 20px;
+  border: 1px solid rgba($gold, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  
+  svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+.profileStats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-top: 30px;
+  padding-top: 25px;
+  border-top: 1px solid rgba($white, 0.1);
+}
+
+.statItem {
+  text-align: center;
+  
+  .statNum {
+    display: block;
+    font-size: 1.75rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, $gold-light, $gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 4px;
+  }
+  
+  .statLabel {
+    font-size: 0.7rem;
+    color: rgba($white, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+  }
+}
+
+/* Right Card - Quick Actions */
+.quickInfoCard {
+  background: $white;
+  border-radius: 24px;
+  padding: 35px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.quickInfoHeader {
+  h3 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: $black;
+    margin-bottom: 8px;
+  }
+  
+  p {
+    color: #64748b;
+    font-size: 0.9rem;
+  }
+}
+
+.accountMetaGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.metaCard {
+  padding: 20px;
+  background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  
+  .metaIcon {
+    width: 40px;
+    height: 40px;
+    background: rgba($gold, 0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+    
+    svg {
+      width: 20px;
+      height: 20px;
+      color: $gold-dark;
+    }
+  }
+  
+  .metaLabel {
+    font-size: 0.7rem;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  
+  .metaValue {
+    font-size: 0.95rem;
+    color: $black;
+    font-weight: 700;
+  }
+}
+
+.activeStatus {
+  color: #10b981 !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  
+  &::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: #10b981;
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+    animation: pulse 2s ease-in-out infinite;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Tabs - Pill Style */
+.tabsWrapper {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 25px;
+  background: $white;
+  padding: 8px;
+  border-radius: 16px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.04);
+}
+
+.tab {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 20px;
+  background: transparent;
+  color: #64748b;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  &:hover:not(.active) {
+    background: #f8fafc;
+    color: $black;
+  }
+  
+  &.active {
+    background: linear-gradient(135deg, $gold, $gold-light);
+    color: $white;
+    box-shadow: 0 4px 15px rgba($gold, 0.3);
+  }
+}
+
+/* Content Cards - Modern Design */
+.card {
+  background: $white;
+  border-radius: 20px;
+  padding: 35px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.06);
+  margin-bottom: 25px;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #f1f5f9;
+  
+  h2 {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: $black;
+    margin-bottom: 6px;
+  }
+  
+  p {
+    color: #64748b;
+    font-size: 0.9rem;
+  }
+}
+
+/* Form - Clean Input Design */
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  margin-bottom: 30px;
+}
+
+.formGroup {
+  label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #475569;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    
+    svg {
+      width: 16px;
+      height: 16px;
+      color: $gold;
+    }
+  }
+  
+  input, select {
+    width: 100%;
+    padding: 14px 18px;
+    background: #f8fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    color: $black;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    
+    &:focus {
+      outline: none;
+      border-color: $gold;
+      background: $white;
+      box-shadow: 0 0 0 4px rgba($gold, 0.08);
+    }
+    
+    &::placeholder {
+      color: #94a3b8;
+    }
+  }
+}
+
+.fieldValue {
+  padding: 14px 18px;
+  background: #f8fafc;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  color: $black;
+  font-weight: 500;
+  border: 2px solid #e2e8f0;
+  
+  &.locked {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #64748b;
+  }
+}
+
+.lockIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: rgba(100, 116, 139, 0.1);
+  border-radius: 8px;
+  
+  svg {
+    width: 14px;
+    height: 14px;
+    color: #94a3b8;
+  }
+}
+
+.phoneInput {
+  display: flex;
+  gap: 10px;
+  
+  select {
+    min-width: 130px;
+  }
+  
+  input {
+    flex: 1;
+  }
+}
+
+/* Action Buttons */
+.editBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: transparent;
+  color: $gold-dark;
+  font-size: 0.9rem;
+  font-weight: 700;
+  border: 2px solid $gold;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  svg {
+    width: 18px;
+    height: 18px;
+  }
+  
+  &:hover {
+    background: linear-gradient(135deg, $gold, $gold-light);
+    color: $white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba($gold, 0.3);
+  }
+}
+
+.editActions {
+  display: flex;
+  gap: 10px;
+}
+
+.cancelBtn {
+  padding: 12px 24px;
+  background: #f8fafc;
+  color: #64748b;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: $white;
+    border-color: #cbd5e1;
+    color: #475569;
+  }
+}
+
+.saveBtn {
+  padding: 12px 28px;
+  background: linear-gradient(135deg, $gold, $gold-light);
+  color: $white;
+  font-size: 0.9rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba($gold, 0.3);
+  
+  &:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba($gold, 0.4);
+  }
+  
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+/* Alert Messages */
+.alert {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  border-radius: 14px;
+  margin-bottom: 25px;
+  border: 2px solid;
+  
+  svg {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+  }
+  
+  span {
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+  
+  &.success {
+    background: rgba($gold, 0.08);
+    color: $gold-dark;
+    border-color: rgba($gold, 0.3);
+  }
+  
+  &.error {
+    background: rgba(239, 68, 68, 0.08);
+    color: #dc2626;
+    border-color: rgba(239, 68, 68, 0.3);
+  }
+}
+
+/* Security Section */
+.securityList {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.securityItem {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  background: #f8fafc;
+  border-radius: 16px;
+  border: 2px solid #f1f5f9;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    border-color: rgba($gold, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  }
+}
+
+.securityIcon {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, $gold, $gold-light);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 15px rgba($gold, 0.25);
+  
+  svg {
+    width: 24px;
+    height: 24px;
+    color: $white;
+  }
+}
+
+.securityInfo {
+  flex: 1;
+  
+  h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: $black;
+    margin-bottom: 4px;
+  }
+  
+  p {
+    font-size: 0.85rem;
+    color: #64748b;
+  }
+}
+
+.securityBtn {
+  padding: 10px 20px;
+  background: transparent;
+  color: $gold-dark;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border: 2px solid $gold;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: linear-gradient(135deg, $gold, $gold-light);
+    color: $white;
+  }
+}
+
+/* Preferences - Toggle Switches */
+.preferencesList {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.preferenceItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: #f8fafc;
+  border-radius: 16px;
+  border: 2px solid #f1f5f9;
+  
+  h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: $black;
+    margin-bottom: 4px;
+  }
+  
+  p {
+    font-size: 0.85rem;
+    color: #64748b;
+  }
+}
+
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 56px;
+  height: 30px;
+  flex-shrink: 0;
+  
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    
+    &:checked + .slider {
+      background: linear-gradient(135deg, $gold, $gold-light);
+      
+      &::before {
+        transform: translateX(26px);
+      }
+    }
+  }
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background: #cbd5e1;
+  border-radius: 30px;
+  transition: 0.3s;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    height: 24px;
+    width: 24px;
+    left: 3px;
+    bottom: 3px;
+    background: $white;
+    border-radius: 50%;
+    transition: 0.3s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .profileHeader {
+    grid-template-columns: 1fr;
+  }
+  
+  .quickInfoCard {
+    padding: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .profileCard {
+    padding: 30px 20px;
+  }
+  
+  .avatar, .avatarImage {
+    width: 110px;
+    height: 110px;
+    font-size: 2.5rem;
+  }
+  
+  .profileStats {
+    gap: 10px;
+  }
+  
+  .tabsWrapper {
+    flex-direction: column;
+  }
+  
+  .card {
+    padding: 25px 20px;
+  }
+  
+  .cardHeader {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .accountMetaGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .editBtn, .saveBtn, .cancelBtn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .editActions {
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .avatar, .avatarImage {
+    width: 100px;
+    height: 100px;
+    font-size: 2.25rem;
+  }
+  
+  .userBasicInfo h1 {
+    font-size: 1.5rem;
+  }
+  
+  .statItem .statNum {
+    font-size: 1.5rem;
+  }
+}

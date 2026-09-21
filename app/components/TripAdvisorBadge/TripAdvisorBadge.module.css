@@ -1,0 +1,25 @@
+/* ── TripAdvisor rated badge wrapper ── */
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Let the TA script render without overflow clipping */
+  overflow: visible;
+}
+
+/* Make sure the injected TA gif / content is never hidden */
+.wrapper :global(.TA_rated),
+.wrapper :global(.TA_links),
+.wrapper :global(.TA_links li),
+.wrapper :global(.TA_links li a) {
+  display: block;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper :global(.TA_links li a img) {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}

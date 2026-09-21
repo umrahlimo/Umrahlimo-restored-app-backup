@@ -1,0 +1,1287 @@
+// Dispatch Panel Styles
+
+.loadingState {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+    gap: 20px;
+
+    .spinner {
+        width: 50px;
+        height: 50px;
+        border: 4px solid #f3f3f3;
+        border-top: 4px solid #2c5f2d;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+    }
+
+    p {
+        color: #666;
+        font-size: 16px;
+    }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+// Stats Grid
+.statsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.statCard {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    }
+
+    .statIcon {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 16px;
+
+        svg {
+            width: 24px;
+            height: 24px;
+            color: white;
+        }
+    }
+
+    .statValue {
+        font-size: 32px;
+        font-weight: 700;
+        color: #1a1a1a;
+        margin-bottom: 8px;
+    }
+
+    .statLabel {
+        font-size: 14px;
+        color: #666;
+        font-weight: 500;
+    }
+
+    &.booked .statIcon {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    &.today .statIcon {
+        background: linear-gradient(135deg, #2c5f2d 0%, #97cc04 100%);
+    }
+
+    &.onway .statIcon {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    }
+
+    &.upcoming .statIcon {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    }
+
+    &.completed .statIcon {
+        background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    }
+
+    &.cancelled .statIcon {
+        background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+    }
+}
+
+// Tabs
+.tabsContainer {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 24px;
+    border-bottom: 2px solid #e5e7eb;
+    overflow-x: auto;
+    padding-bottom: 0;
+}
+
+.tab {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    color: #6b7280;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+
+    svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    &:hover {
+        color: #2c5f2d;
+        background: #f9fafb;
+    }
+
+    &.active {
+        color: #2c5f2d;
+        border-bottom-color: #2c5f2d;
+        background: #f0f9f0;
+    }
+}
+
+// Tab Content
+.tabContent {
+    min-height: 400px;
+}
+
+// Overview & Today Grid
+.overviewGrid,
+.todayGrid {
+    .section {
+        h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+        }
+    }
+}
+
+.ridesList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 20px;
+}
+
+.rideCard {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.2s;
+    border-left: 4px solid #2c5f2d;
+
+    &:hover {
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+        transform: translateY(-2px);
+    }
+
+    .rideHeader {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 16px;
+
+        .status {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: capitalize;
+
+            &.pending {
+                background: #fef3c7;
+                color: #92400e;
+            }
+
+            &.confirmed {
+                background: #dbeafe;
+                color: #1e40af;
+            }
+
+            &.on-the-way {
+                background: #dcfce7;
+                color: #166534;
+            }
+
+            &.completed {
+                background: #d1fae5;
+                color: #065f46;
+            }
+        }
+
+        .time,
+        .bookingId {
+            font-size: 13px;
+            font-weight: 600;
+            color: #666;
+        }
+    }
+
+    .rideInfo {
+        margin-bottom: 16px;
+
+        p {
+            margin: 8px 0;
+            font-size: 14px;
+            color: #4b5563;
+
+            strong {
+                color: #1a1a1a;
+                font-size: 16px;
+            }
+        }
+
+        .route,
+        .dateTime,
+        .vehicle {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            svg {
+                width: 16px;
+                height: 16px;
+                color: #9ca3af;
+                flex-shrink: 0;
+            }
+        }
+
+        .driver {
+            color: #2c5f2d;
+            font-weight: 600;
+            font-size: 13px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .driverRating {
+            display: inline-flex;
+            align-items: center;
+            padding: 2px 8px;
+            border-radius: 999px;
+            background: #fef3c7;
+            color: #92400e;
+            font-size: 11px;
+            font-weight: 700;
+        }
+    }
+
+    .actions {
+        display: flex;
+        gap: 10px;
+        margin-top: 16px;
+        padding-top: 16px;
+        border-top: 1px solid #e5e7eb;
+
+        button {
+            flex: 1;
+            padding: 10px 16px;
+            border: none;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .actionBtn {
+            background: #2c5f2d;
+            color: white;
+
+            &:hover {
+                background: #1e4620;
+                transform: translateY(-1px);
+            }
+        }
+
+        .cancelActionBtn {
+            background: #fee2e2;
+            color: #991b1b;
+
+            &:hover {
+                background: #fecaca;
+            }
+        }
+    }
+}
+
+// Upcoming Tab
+.upcomingList {
+    h3 {
+        font-size: 20px;
+        font-weight: 700;
+        color: #1a1a1a;
+        margin-bottom: 20px;
+    }
+}
+
+.upcomingCard {
+    display: flex;
+    gap: 20px;
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.2s;
+
+    &:hover {
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    }
+
+    .upcomingDate {
+        .dateBox {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #2c5f2d;
+            color: white;
+            border-radius: 12px;
+            padding: 12px 16px;
+            min-width: 70px;
+
+            .day {
+                font-size: 28px;
+                font-weight: 700;
+                line-height: 1;
+            }
+
+            .month {
+                font-size: 12px;
+                font-weight: 600;
+                text-transform: uppercase;
+                margin-top: 4px;
+            }
+        }
+    }
+
+    .upcomingInfo {
+        flex: 1;
+
+        h4 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+
+        p {
+            margin: 4px 0;
+            font-size: 14px;
+            color: #6b7280;
+        }
+
+        .time {
+            font-weight: 600;
+            color: #2c5f2d;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-top: 8px;
+            text-transform: capitalize;
+
+            &.pending {
+                background: #fef3c7;
+                color: #92400e;
+            }
+
+            &.confirmed {
+                background: #dbeafe;
+                color: #1e40af;
+            }
+        }
+    }
+
+    .upcomingActions {
+        display: flex;
+        align-items: center;
+
+        .cancelBtn {
+            padding: 10px 20px;
+            background: #fee2e2;
+            color: #991b1b;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+
+            &:hover {
+                background: #fecaca;
+            }
+        }
+    }
+}
+
+// Map Tab
+.mapContainer {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 20px;
+    height: 600px;
+
+    .mapPlaceholder {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        padding: 40px;
+        text-align: center;
+
+        svg {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        p {
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        small {
+            font-size: 13px;
+            opacity: 0.8;
+        }
+    }
+
+    .mapSidebar {
+        background: white;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        overflow-y: auto;
+
+        h4 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 16px;
+        }
+
+        .activeRidesList {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .mapRideCard {
+            display: flex;
+            gap: 12px;
+            padding: 12px;
+            background: #f9fafb;
+            border-radius: 8px;
+            border-left: 3px solid #2c5f2d;
+
+            .rideMarker {
+                width: 40px;
+                height: 40px;
+                background: #2c5f2d;
+                border-radius: 8px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+
+                svg {
+                    width: 20px;
+                    height: 20px;
+                    color: white;
+                }
+            }
+
+            p {
+                margin: 2px 0;
+                font-size: 13px;
+
+                strong {
+                    font-size: 14px;
+                    color: #1a1a1a;
+                }
+            }
+
+            .small {
+                font-size: 12px;
+                color: #6b7280;
+            }
+        }
+    }
+}
+
+// Communication Logs
+.logsList {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.logItem {
+    display: flex;
+    gap: 16px;
+    padding: 16px;
+    border-bottom: 1px solid #e5e7eb;
+    transition: background 0.2s;
+
+    &:hover {
+        background: #f9fafb;
+    }
+
+    &:last-child {
+        border-bottom: none;
+    }
+
+    .logIcon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: #f3f4f6;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+
+        svg {
+            width: 20px;
+            height: 20px;
+            color: #6b7280;
+        }
+    }
+
+    .logContent {
+        flex: 1;
+
+        p {
+            margin: 4px 0;
+            font-size: 14px;
+            color: #4b5563;
+
+            strong {
+                color: #1a1a1a;
+                font-weight: 600;
+            }
+        }
+
+        .logTime {
+            font-size: 12px;
+            color: #9ca3af;
+            margin-top: 4px;
+        }
+    }
+}
+
+// Modal
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 20px;
+
+    .modalContent {
+        background: white;
+        border-radius: 16px;
+        max-width: 500px;
+        width: 100%;
+        max-height: 90vh;
+        overflow-y: auto;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    }
+
+    .modalHeader {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 24px;
+        border-bottom: 1px solid #e5e7eb;
+
+        h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+
+        button {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: none;
+            background: #f3f4f6;
+            color: #6b7280;
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+
+            &:hover {
+                background: #e5e7eb;
+                color: #1a1a1a;
+            }
+        }
+    }
+
+    .modalBody {
+        padding: 24px;
+
+        p {
+            margin: 8px 0;
+            font-size: 14px;
+            color: #4b5563;
+
+            strong {
+                color: #1a1a1a;
+                font-weight: 600;
+            }
+        }
+
+        .inputGroup {
+            margin-top: 20px;
+
+            label {
+                display: block;
+                font-size: 14px;
+                font-weight: 600;
+                color: #374151;
+                margin-bottom: 8px;
+            }
+
+            textarea {
+                width: 100%;
+                padding: 12px;
+                border: 2px solid #e5e7eb;
+                border-radius: 8px;
+                font-size: 14px;
+                font-family: inherit;
+                resize: vertical;
+                transition: border-color 0.2s;
+
+                &:focus {
+                    outline: none;
+                    border-color: #2c5f2d;
+                }
+            }
+        }
+
+        .modalActions {
+            display: flex;
+            gap: 12px;
+            margin-top: 24px;
+
+            button {
+                flex: 1;
+                padding: 12px 24px;
+                border: none;
+                border-radius: 8px;
+                font-size: 14px;
+                font-weight: 600;
+                cursor: pointer;
+                transition: all 0.2s;
+            }
+
+            .cancelBtn {
+                background: #f3f4f6;
+                color: #6b7280;
+
+                &:hover {
+                    background: #e5e7eb;
+                }
+            }
+
+            .confirmBtn {
+                background: #dc2626;
+                color: white;
+
+                &:hover {
+                    background: #b91c1c;
+                }
+            }
+        }
+    }
+}
+
+// Empty State
+.emptyState {
+    text-align: center;
+    padding: 60px 20px;
+    color: #9ca3af;
+
+    p {
+        font-size: 16px;
+    }
+}
+
+// Responsive
+@media (max-width: 1024px) {
+    .mapContainer {
+        grid-template-columns: 1fr;
+        height: auto;
+
+        .mapPlaceholder {
+            min-height: 400px;
+        }
+
+        .mapSidebar {
+            max-height: 400px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .statsGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .ridesList {
+        grid-template-columns: 1fr;
+    }
+
+    .upcomingCard {
+        flex-direction: column;
+    }
+
+    .tabsContainer {
+        .tab {
+            font-size: 12px;
+            padding: 10px 12px;
+
+            svg {
+                width: 16px;
+                height: 16px;
+            }
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .statsGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+// Pending & Expired Tabs
+.pendingList,
+.expiredList {
+    h3 {
+        font-size: 24px;
+        font-weight: 700;
+        color: #1a1a1a;
+        margin-bottom: 8px;
+    }
+
+    .tabDescription {
+        color: #6b7280;
+        font-size: 14px;
+        margin-bottom: 24px;
+    }
+}
+
+.detailedList {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.detailedCard {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: all 0.3s;
+
+    &:hover {
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+        transform: translateY(-2px);
+    }
+
+    .cardHeader {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 24px;
+        background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+        border-bottom: 1px solid #e5e7eb;
+
+        .headerLeft {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .statusBadge {
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+
+            &.pending {
+                background: #fef3c7;
+                color: #92400e;
+            }
+
+            &.expired {
+                background: #fee2e2;
+                color: #991b1b;
+            }
+        }
+
+        .bookingId {
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            font-weight: 600;
+            color: #6b7280;
+            background: white;
+            padding: 4px 12px;
+            border-radius: 8px;
+        }
+
+        .timestamp {
+            font-size: 13px;
+            color: #6b7280;
+        }
+    }
+
+    .cardBody {
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .infoSection {
+        h4 {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            &:before {
+                content: '';
+                width: 4px;
+                height: 16px;
+                background: #2c5f2d;
+                border-radius: 2px;
+            }
+        }
+    }
+
+    .infoGrid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 16px;
+    }
+
+    .infoItem {
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+
+        svg {
+            width: 20px;
+            height: 20px;
+            color: #2c5f2d;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        div {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .label {
+            font-size: 12px;
+            color: #6b7280;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .value {
+            font-size: 14px;
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+    }
+
+    .routeDetails {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        padding: 16px;
+        background: #f9fafb;
+        border-radius: 12px;
+    }
+
+    .routePoint {
+        display: flex;
+        gap: 16px;
+        align-items: flex-start;
+
+        .routeIcon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #2c5f2d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+
+            svg {
+                width: 16px;
+                height: 16px;
+                color: white;
+            }
+        }
+
+        div {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            flex: 1;
+        }
+
+        .label {
+            font-size: 12px;
+            color: #6b7280;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .location {
+            font-size: 15px;
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+    }
+
+    .routeLine {
+        width: 2px;
+        height: 24px;
+        background: #d1d5db;
+        margin-left: 15px;
+    }
+
+    .tripMeta {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+        margin-top: 12px;
+    }
+
+    .metaItem {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 16px;
+        background: white;
+        border-radius: 8px;
+        border: 1px solid #e5e7eb;
+
+        svg {
+            width: 18px;
+            height: 18px;
+            color: #2c5f2d;
+        }
+
+        span {
+            font-size: 14px;
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+    }
+
+    .specialRequests {
+        padding: 16px;
+        background: #fef3c7;
+        border-left: 4px solid #f59e0b;
+        border-radius: 8px;
+        font-size: 14px;
+        color: #92400e;
+        line-height: 1.6;
+    }
+
+    .cardActions {
+        display: flex;
+        gap: 12px;
+        padding: 20px 24px;
+        background: #f9fafb;
+        border-top: 1px solid #e5e7eb;
+
+        button {
+            flex: 1;
+            padding: 14px 24px;
+            border: none;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+
+            svg {
+                width: 18px;
+                height: 18px;
+            }
+        }
+
+        .approveBtn {
+            background: #2c5f2d;
+            color: white;
+
+            &:hover {
+                background: #1e4620;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(44, 95, 45, 0.3);
+            }
+        }
+
+        .rejectBtn {
+            background: #fee2e2;
+            color: #991b1b;
+
+            &:hover {
+                background: #fecaca;
+            }
+        }
+    }
+}
+
+// Expired Grid
+.expiredGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+}
+
+.expiredCard {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border-left: 4px solid #dc2626;
+    overflow: hidden;
+    transition: all 0.2s;
+
+    &:hover {
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+        transform: translateY(-2px);
+    }
+
+    .expiredHeader {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px;
+        background: #fef2f2;
+        border-bottom: 1px solid #fee2e2;
+
+        .overdueTime {
+            font-size: 13px;
+            font-weight: 700;
+            color: #dc2626;
+            background: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+        }
+    }
+
+    .expiredBody {
+        padding: 16px;
+
+        .customerName {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 16px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 12px;
+
+            svg {
+                width: 20px;
+                height: 20px;
+                color: #6b7280;
+            }
+        }
+
+        .scheduledTime {
+            font-size: 13px;
+            color: #dc2626;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .route {
+            font-size: 14px;
+            color: #4b5563;
+            margin-bottom: 8px;
+        }
+
+        .vehicle {
+            font-size: 13px;
+            color: #6b7280;
+            margin-bottom: 12px;
+        }
+
+        .currentStatus {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: capitalize;
+
+            &.pending {
+                background: #fef3c7;
+                color: #92400e;
+            }
+
+            &.confirmed {
+                background: #dbeafe;
+                color: #1e40af;
+            }
+        }
+    }
+
+    .expiredActions {
+        padding: 16px;
+        border-top: 1px solid #e5e7eb;
+
+        .cancelExpiredBtn {
+            width: 100%;
+            padding: 12px;
+            background: #dc2626;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+
+            &:hover {
+                background: #b91c1c;
+            }
+        }
+    }
+}
+
+// Expired stat card
+.statCard.expired .statIcon {
+    background: linear-gradient(135deg, #f59e0b 0%, #dc2626 100%);
+}
+
+// Responsive
+@media (max-width: 768px) {
+    .detailedCard {
+        .cardHeader {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .infoGrid {
+            grid-template-columns: 1fr;
+        }
+
+        .cardActions {
+            flex-direction: column;
+        }
+    }
+
+    .expiredGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+// Documents Status
+.documentsStatus {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    background: #f9fafb;
+    border-radius: 8px;
+
+    .docBadge {
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 13px;
+        font-weight: 600;
+
+        &.pending {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        &.submitted {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        &.verified {
+            background: #d1fae5;
+            color: #065f46;
+        }
+    }
+
+    .viewDocsBtn {
+        padding: 8px 16px;
+        background: #2c5f2d;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+
+        &:hover {
+            background: #1e4620;
+        }
+    }
+}

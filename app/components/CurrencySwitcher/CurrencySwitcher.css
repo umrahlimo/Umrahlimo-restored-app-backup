@@ -1,0 +1,154 @@
+.currency-switcher {
+    position: relative;
+    z-index: 1000;
+}
+
+.currency-switcher__toggle {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 8px;
+    color: rgba(255, 255, 255, 0.95);
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(0, 0, 0, 0.06);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.currency-switcher__toggle:hover {
+    background: rgba(255, 255, 255, 0.22);
+    border-color: rgba(201, 162, 39, 0.6);
+}
+
+.currency-switcher__flag {
+    font-size: 1.1rem;
+    line-height: 1;
+}
+
+.currency-switcher__code {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.currency-switcher__arrow {
+    transition: transform 0.25s ease;
+    opacity: 0.7;
+}
+
+.currency-switcher__arrow.open {
+    transform: rotate(180deg);
+}
+
+.currency-switcher__dropdown {
+    position: absolute;
+    top: calc(100% + 6px);
+    right: 0;
+    min-width: 240px;
+    max-height: 320px;
+    overflow-y: auto;
+    background: #1a1a2e;
+    border: 1px solid rgba(201, 162, 39, 0.25);
+    border-radius: 12px;
+    padding: 6px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+    animation: currencyDropIn 0.2s ease;
+}
+
+@keyframes currencyDropIn {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.currency-switcher__dropdown::-webkit-scrollbar {
+    width: 4px;
+}
+
+.currency-switcher__dropdown::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.currency-switcher__dropdown::-webkit-scrollbar-thumb {
+    background: rgba(201, 162, 39, 0.3);
+    border-radius: 4px;
+}
+
+.currency-switcher__option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 10px 12px;
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    color: #e0e0e0;
+    cursor: pointer;
+    font-size: 0.85rem;
+    text-align: left;
+    transition: all 0.15s ease;
+}
+
+.currency-switcher__option:hover {
+    background: rgba(201, 162, 39, 0.12);
+    color: #fff;
+}
+
+.currency-switcher__option.active {
+    background: rgba(201, 162, 39, 0.18);
+    color: #C9A227;
+}
+
+.currency-switcher__option-flag {
+    font-size: 1.15rem;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.currency-switcher__option-code {
+    font-weight: 700;
+    min-width: 36px;
+    letter-spacing: 0.5px;
+}
+
+.currency-switcher__option-name {
+    flex: 1;
+    opacity: 0.7;
+    font-size: 0.8rem;
+}
+
+.currency-switcher__check {
+    flex-shrink: 0;
+    color: #C9A227;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .currency-switcher__dropdown {
+        right: -20px;
+        min-width: 220px;
+    }
+
+    .currency-switcher__toggle {
+        padding: 5px 8px;
+        font-size: 0.8rem;
+    }
+
+    .currency-switcher__option-name {
+        display: none;
+    }
+}

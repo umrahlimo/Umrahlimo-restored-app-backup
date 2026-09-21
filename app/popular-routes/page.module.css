@@ -1,0 +1,368 @@
+.page {
+  min-height: 100vh;
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 136px 0 64px;
+  background: linear-gradient(180deg, #08111f 0%, #0f172a 100%);
+}
+
+.heroGlowOne,
+.heroGlowTwo {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(12px);
+  pointer-events: none;
+}
+
+.heroGlowOne {
+  top: 86px;
+  left: -80px;
+  width: 260px;
+  height: 260px;
+  background: rgba(20, 184, 166, 0.22);
+}
+
+.heroGlowTwo {
+  right: -60px;
+  top: 40px;
+  width: 320px;
+  height: 320px;
+  background: rgba(14, 165, 233, 0.18);
+}
+
+.heroGrid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 24px;
+  align-items: start;
+}
+
+.heroContent {
+  color: #ffffff;
+}
+
+.heroBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: rgba(15, 118, 110, 0.28);
+  border: 1px solid rgba(45, 212, 191, 0.25);
+  color: #99f6e4;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.heroTitle {
+  margin: 20px 0 0;
+  font-size: clamp(2.3rem, 5vw, 4.8rem);
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+}
+
+.heroLead {
+  max-width: 720px;
+  margin: 18px 0 0;
+  color: #cbd5e1;
+  font-size: clamp(1rem, 1.7vw, 1.16rem);
+  line-height: 1.75;
+}
+
+.heroStats {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.heroStat {
+  border-radius: 18px;
+  padding: 18px 16px;
+  background: rgba(15, 23, 42, 0.55);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  backdrop-filter: blur(16px);
+}
+
+.heroStatValue {
+  display: block;
+  color: #ffffff;
+  font-size: 1.8rem;
+  line-height: 1;
+  font-weight: 700;
+}
+
+.heroStatLabel {
+  display: block;
+  margin-top: 8px;
+  color: #cbd5e1;
+  font-size: 13px;
+}
+
+.heroActions {
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.primaryAction,
+.secondaryAction {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 18px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.primaryAction {
+  color: #06201c;
+  background: linear-gradient(90deg, #34d399 0%, #5eead4 100%);
+  box-shadow: 0 18px 34px rgba(45, 212, 191, 0.25);
+}
+
+.secondaryAction {
+  color: #ffffff;
+  background: rgba(15, 23, 42, 0.42);
+  border: 1px solid rgba(148, 163, 184, 0.22);
+}
+
+.primaryAction:hover,
+.secondaryAction:hover {
+  transform: translateY(-1px);
+}
+
+.heroPanel {
+  border-radius: 28px;
+  padding: 24px;
+  background: rgba(2, 6, 23, 0.54);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  color: #ffffff;
+  backdrop-filter: blur(18px);
+}
+
+.panelLabel {
+  margin: 0;
+  color: #99f6e4;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.panelList {
+  margin: 16px 0 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 10px;
+  color: #e2e8f0;
+  line-height: 1.65;
+}
+
+.panelNote {
+  margin-top: 20px;
+  padding: 16px 18px;
+  border-radius: 18px;
+  background: rgba(20, 184, 166, 0.12);
+  color: #d1fae5;
+  line-height: 1.7;
+}
+
+.section {
+  padding: 24px 0 64px;
+}
+
+.routesGrid {
+  display: grid;
+  gap: 18px;
+}
+
+.routeCard {
+  border-radius: 28px;
+  padding: 22px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+}
+
+.routeCardHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.routeCode {
+  min-width: 58px;
+  height: 58px;
+  border-radius: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0f172a, #0f766e);
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.routeTitle {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #0f172a;
+}
+
+.routeCity {
+  margin: 6px 0 0;
+  color: #64748b;
+}
+
+.routeTrend {
+  margin: 16px 0 0;
+  color: #0f766e;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.routeSummary {
+  margin: 10px 0 0;
+  color: #475569;
+  line-height: 1.7;
+}
+
+.routeList {
+  margin-top: 18px;
+  display: grid;
+  gap: 10px;
+}
+
+.routeLink {
+  display: grid;
+  gap: 5px;
+  padding: 14px 16px;
+  border-radius: 18px;
+  border: 1px solid #e2e8f0;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  text-decoration: none;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.routeLink:hover {
+  transform: translateY(-1px);
+  border-color: #5eead4;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+}
+
+.routeLinkTop {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: baseline;
+}
+
+.routeLinkLabel {
+  color: #0f172a;
+  font-weight: 700;
+}
+
+.routePrice {
+  color: #0f766e;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.routeLinkMeta {
+  color: #0f766e;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.routeLinkDetail {
+  color: #475569;
+  font-size: 14px;
+}
+
+.noticeCard {
+  display: grid;
+  gap: 20px;
+  align-items: center;
+  padding: 24px;
+  border-radius: 28px;
+  background: linear-gradient(135deg, #0f172a 0%, #0f766e 100%);
+  color: #ffffff;
+  box-shadow: 0 24px 48px rgba(15, 23, 42, 0.22);
+}
+
+.noticeLabel {
+  margin: 0 0 10px;
+  color: #99f6e4;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.noticeTitle {
+  margin: 0;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  line-height: 1.2;
+}
+
+.noticeActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+@media (min-width: 768px) {
+  .heroGrid {
+    grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.9fr);
+  }
+
+  .routesGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .noticeCard {
+    grid-template-columns: minmax(0, 1.4fr) auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero {
+    padding: 124px 0 50px;
+  }
+
+  .heroStats {
+    grid-template-columns: 1fr;
+  }
+
+  .routeCard,
+  .heroPanel,
+  .noticeCard {
+    border-radius: 22px;
+  }
+
+  .routeLinkTop {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .noticeActions {
+    width: 100%;
+  }
+}

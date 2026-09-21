@@ -1,0 +1,279 @@
+.page {
+  min-height: 100vh;
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 136px 0 68px;
+  background: linear-gradient(180deg, #08111f 0%, #0f172a 100%);
+}
+
+.heroGlowOne,
+.heroGlowTwo {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(12px);
+  pointer-events: none;
+}
+
+.heroGlowOne {
+  top: 92px;
+  left: -90px;
+  width: 280px;
+  height: 280px;
+  background: rgba(20, 184, 166, 0.22);
+}
+
+.heroGlowTwo {
+  right: -70px;
+  top: 36px;
+  width: 340px;
+  height: 340px;
+  background: rgba(14, 165, 233, 0.18);
+}
+
+.heroGrid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 24px;
+  align-items: start;
+}
+
+.heroContent {
+  color: #ffffff;
+}
+
+.heroBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: rgba(15, 118, 110, 0.28);
+  border: 1px solid rgba(45, 212, 191, 0.25);
+  color: #99f6e4;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.heroTitle {
+  margin: 20px 0 0;
+  font-size: clamp(2.3rem, 5vw, 4.6rem);
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+}
+
+.heroLead {
+  margin: 16px 0 0;
+  color: #5eead4;
+  font-size: 1.04rem;
+  font-weight: 700;
+}
+
+.heroSummary {
+  max-width: 720px;
+  margin: 14px 0 0;
+  color: #cbd5e1;
+  font-size: clamp(1rem, 1.7vw, 1.12rem);
+  line-height: 1.75;
+}
+
+.heroActions {
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.primaryAction,
+.secondaryAction {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 18px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.primaryAction {
+  color: #06201c;
+  background: linear-gradient(90deg, #34d399 0%, #5eead4 100%);
+  box-shadow: 0 18px 34px rgba(45, 212, 191, 0.25);
+}
+
+.secondaryAction {
+  color: #ffffff;
+  background: rgba(15, 23, 42, 0.42);
+  border: 1px solid rgba(148, 163, 184, 0.22);
+}
+
+.primaryAction:hover,
+.secondaryAction:hover {
+  transform: translateY(-1px);
+}
+
+.heroPanel {
+  border-radius: 28px;
+  padding: 24px;
+  background: rgba(2, 6, 23, 0.54);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  color: #ffffff;
+  backdrop-filter: blur(18px);
+}
+
+.panelLabel {
+  margin: 0;
+  color: #99f6e4;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.factsGrid {
+  margin-top: 18px;
+  display: grid;
+  gap: 10px;
+}
+
+.factCard {
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(148, 163, 184, 0.16);
+}
+
+.factLabel {
+  display: block;
+  color: #99f6e4;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.factValue {
+  display: block;
+  margin-top: 6px;
+  color: #ffffff;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.section {
+  padding: 24px 0 64px;
+}
+
+.routesGrid,
+.stepsGrid,
+.tipGrid {
+  display: grid;
+  gap: 18px;
+}
+
+.routeCard,
+.stepCard,
+.tipCard {
+  border-radius: 28px;
+  padding: 22px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.routeCard:hover,
+.stepCard:hover,
+.tipCard:hover {
+  transform: translateY(-2px);
+  border-color: #5eead4;
+  box-shadow: 0 22px 44px rgba(15, 23, 42, 0.12);
+}
+
+.routeLabel {
+  display: block;
+  color: #0f172a;
+  font-size: 1.08rem;
+  font-weight: 800;
+}
+
+.routeDetail {
+  display: block;
+  margin-top: 8px;
+  color: #475569;
+  line-height: 1.65;
+}
+
+.stepNumber,
+.tipIndex {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #0f172a, #0f766e);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.stepTitle {
+  margin: 14px 0 0;
+  color: #0f172a;
+  font-size: 1.12rem;
+}
+
+.stepText,
+.tipText {
+  margin: 10px 0 0;
+  color: #475569;
+  line-height: 1.7;
+}
+
+@media (min-width: 768px) {
+  .heroGrid {
+    grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.9fr);
+  }
+
+  .routesGrid,
+  .stepsGrid,
+  .tipGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .routesGrid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .stepsGrid,
+  .tipGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .hero {
+    padding: 124px 0 50px;
+  }
+
+  .routeCard,
+  .stepCard,
+  .tipCard,
+  .heroPanel {
+    border-radius: 22px;
+  }
+}
