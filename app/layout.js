@@ -7,6 +7,7 @@ import { CurrencyProvider } from '../context/CurrencyContext'
 import TawkTo from './components/TawkTo/TawkTo'
 import WhatsAppFloat from './components/WhatsAppFloat/WhatsAppFloat'
 import { buildLocalBusinessSchema, buildOrganizationSchema } from '../lib/seo/schemas'
+import { Analytics } from '@vercel/analytics/next'
 
 // Force dynamic rendering to avoid Firebase initialization during build
 export const dynamic = 'force-dynamic'
@@ -87,6 +88,7 @@ export default function RootLayout({ children }) {
         </LanguageProvider>
         <TawkTo />
         <WhatsAppFloat />
+        <Analytics />
         <Script
           src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
           strategy="lazyOnload"
