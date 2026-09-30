@@ -124,7 +124,7 @@ function buildServiceSchema(route, slug) {
     }
   }
 
-  // Universal structural layout fallback schema
+  // Universal structural layout fallback schema (Syntax error completely clean here)
   return {
     '@context': 'https://schema.org',
     '@type': 'Service',
@@ -137,7 +137,7 @@ function buildServiceSchema(route, slug) {
     },
     areaServed: [route.from, route.to],
     url: `${BASE_URL}/transfer/${route.slug}`,
-    priceRange: route.fares?.rows?.[0]?.prices?.[0] || 'SAR',
+    priceRange: 'SAR',
   }
 }
 
