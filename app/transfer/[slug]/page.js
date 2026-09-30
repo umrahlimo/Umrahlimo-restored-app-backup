@@ -72,7 +72,6 @@ export function generateMetadata({ params }) {
     }
   }
 
-  // Fallback defaults for any other route slug configuration array
   return {
     title: route.title,
     description: route.metaDescription,
@@ -88,7 +87,6 @@ export function generateMetadata({ params }) {
 }
 
 function buildServiceSchema(route, slug) {
-  // SCHEMA MAP DATA OBJECT FOR ALL SYSTEM ROUTES (TELEPHONE REMOVED)
   const routeSchemaConfig = {
     'jeddah-airport-to-makkah': { name: 'Jeddah to Makkah Transfer', regions: ['Jeddah', 'Makkah'], price: '210.00' },
     'makkah-to-madinah': { name: 'Makkah to Madinah Intercity Transport', regions: ['Makkah', 'Madinah'], price: '400.00' },
@@ -119,12 +117,12 @@ function buildServiceSchema(route, slug) {
         '@type': 'Offer',
         'priceCurrency': 'SAR',
         'price': config.price,
-        'description': `Fixed wholesale and consumer retail pricing structure starting from ${config.price} SAR.`
+        'description': `Fixed pricing structure starting from ${config.price} SAR.`
       }
     }
   }
 
-  // Universal structural layout fallback schema (Syntax error completely clean here)
+  // Fallback fallback section completely cleaned of syntax typos
   return {
     '@context': 'https://schema.org',
     '@type': 'Service',
@@ -137,7 +135,7 @@ function buildServiceSchema(route, slug) {
     },
     areaServed: [route.from, route.to],
     url: `${BASE_URL}/transfer/${route.slug}`,
-    priceRange: 'SAR',
+    priceRange: 'SAR'
   }
 }
 
@@ -238,3 +236,8 @@ export default function TransferRoutePage({ params }) {
                       <thead>
                         <tr>
                           <th>Vehicle</th>
+                          {route.fares.columns.map((col) => (
+                            <th key={col}>{col}</th>
+                          ))}
+                        </tr>
+                      </thead>
