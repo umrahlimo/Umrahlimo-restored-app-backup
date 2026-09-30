@@ -23,23 +23,56 @@ export function generateMetadata({ params }) {
     return { title: 'Transfer | UmrahLimo' }
   }
 
-  // FORCE HIGH-INTENT SEO TITLES NATIVELY FOR THE JEDDAH ROUTE
-  if (params.slug === 'jeddah-airport-to-makkah') {
-    return {
+  // MULTI-ROUTE META OPTIMIZATION LAYER
+  const routeMetaMap = {
+    'jeddah-airport-to-makkah': {
       title: 'Jeddah Airport to Makkah Private Transfer | Luxury & Family Vans',
-      description: 'Pre-book reliable, fixed-fare private airport transfers from Jeddah Airport (JED) to Makkah. Premium VIP limos, GMC Yukons, and family vans. 24/7 flight tracking.',
-      keywords: ['Jeddah Airport to Makkah Private Transfer'],
-      alternates: { canonical: `${BASE_URL}/transfer/jeddah-airport-to-makkah` },
+      description: 'Pre-book reliable, fixed-fare private airport transfers from Jeddah Airport (JED) to Makkah. Premium VIP limos, GMC Yukons, and family vans. 24/7 flight tracking.'
+    },
+    'makkah-to-madinah': {
+      title: 'Makkah to Madinah Private Transport | Umrah Limo Service',
+      description: 'Comfortable intercity private transport from Makkah to Madinah. Clean standard family vans, premium coaches, and luxury VIP options. Complimentary Meeqat stops.'
+    },
+    'jeddah-airport-to-madinah': {
+      title: 'Jeddah Airport to Madinah Private Transfer | VIP & Family Fleet',
+      description: 'Reliable long-distance ground transportation from Jeddah Airport (JED) directly to your Madinah hotel. Professional drivers and premium air-conditioned vehicles.'
+    },
+    'madinah-airport-to-madinah': {
+      title: 'Madinah Airport Transfer | Private Limo & Hotel Chauffeur',
+      description: 'Pre-book fast, private airport transfers from Prince Mohammad Bin Abdulaziz Airport (MED) to Madinah hotels. Professional meet & greet with live flight tracking.'
+    },
+    'makkah-to-jeddah-airport': {
+      title: 'Makkah to Jeddah Airport Private Transport | Fixed Rates',
+      description: 'Dependable private transfers from your Makkah hotel back to Jeddah Airport (JED). Punctual, professional drivers ensure you catch your departure flight stress-free.'
+    },
+    'madinah-to-makkah': {
+      title: 'Madinah to Makkah Private Transport | Umrah Pilgrim Fleet',
+      description: 'Travel seamlessly between the two holy cities. Private intercity transfers from Madinah to Makkah with optional stops at the Meeqat for Ihram preparation.'
+    },
+    'madinah-to-jeddah-airport': {
+      title: 'Madinah to Jeddah Airport Private Transfer | Long-Distance Limo',
+      description: 'Chauffeured long-distance private transfers from Madinah to Jeddah Airport (JED). Premium SUVs and standard multi-seater family vans built for long journeys.'
+    }
+  }
+
+  const optimizedMeta = routeMetaMap[params.slug]
+
+  if (optimizedMeta) {
+    return {
+      title: optimizedMeta.title,
+      description: optimizedMeta.description,
+      keywords: [`${route.from} to ${route.to} Transport`],
+      alternates: { canonical: `${BASE_URL}/transfer/${params.slug}` },
       openGraph: {
-        title: 'Jeddah Airport to Makkah Private Transfer | Luxury & Family Vans',
-        description: 'Pre-book reliable, fixed-fare private airport transfers from Jeddah Airport (JED) to Makkah.',
-        url: `${BASE_URL}/transfer/jeddah-airport-to-makkah`,
+        title: optimizedMeta.title,
+        description: optimizedMeta.description,
+        url: `${BASE_URL}/transfer/${params.slug}`,
         type: 'website',
       },
     }
   }
 
-  // Fallback defaults for all other platform route slugs
+  // Fallback defaults for any other route slug configuration array
   return {
     title: route.title,
     description: route.metaDescription,
@@ -55,35 +88,43 @@ export function generateMetadata({ params }) {
 }
 
 function buildServiceSchema(route, slug) {
-  // UPGRADE THE BASIC GENERIC SERVICE MARKUP TO AN EXPLICIT TAXI SERVICE OBJECT FOR JEDDAH
-  if (slug === 'jeddah-airport-to-makkah') {
+  // SCHEMA MAP DATA OBJECT FOR ALL SYSTEM ROUTES (TELEPHONE REMOVED)
+  const routeSchemaConfig = {
+    'jeddah-airport-to-makkah': { name: 'Jeddah to Makkah Transfer', regions: ['Jeddah', 'Makkah'], price: '210.00' },
+    'makkah-to-madinah': { name: 'Makkah to Madinah Intercity Transport', regions: ['Makkah', 'Madinah'], price: '400.00' },
+    'jeddah-airport-to-madinah': { name: 'Jeddah Airport to Madinah Long-Distance Transfer', regions: ['Jeddah', 'Madinah'], price: '600.00' },
+    'madinah-airport-to-madinah': { name: 'Madinah Airport Local Hotel Transfer', regions: ['Madinah'], price: '150.00' },
+    'makkah-to-jeddah-airport': { name: 'Makkah to Jeddah Airport Departure Transfer', regions: ['Makkah', 'Jeddah'], price: '210.00' },
+    'madinah-to-makkah': { name: 'Madinah to Makkah Intercity Pilgrim Transport', regions: ['Madinah', 'Makkah'], price: '400.00' },
+    'madinah-to-jeddah-airport': { name: 'Madinah to Jeddah Airport Private Chauffeur', regions: ['Madinah', 'Jeddah'], price: '600.00' }
+  }
+
+  const config = routeSchemaConfig[slug]
+
+  if (config) {
     return {
       '@context': 'https://schema.org',
       '@type': 'TaxiService',
-      'name': 'UmrahLimo Jeddah to Makkah Transfer',
-      'description': 'Private airport transfer and limo services from King Abdulaziz International Airport (JED) to Makkah hotels.',
+      'name': `UmrahLimo ${config.name}`,
+      'description': `Premium private transfer and limo logistics for ${config.name} routes. Fixed competitive pricing.`,
       'provider': {
         '@type': 'LocalBusiness',
         'name': 'UmrahLimo',
-        'url': BASE_URL,
-        'telephone': '+966 53 392 4547'
+        'url': BASE_URL
       },
       'providerMobility': 'dynamic',
-      'areaServed': [
-        { '@type': 'AdministrativeArea', 'name': 'Jeddah' },
-        { '@type': 'AdministrativeArea', 'name': 'Makkah' }
-      ],
-      'url': `${BASE_URL}/transfer/jeddah-airport-to-makkah`,
+      'areaServed': config.regions.map(region => ({ '@type': 'AdministrativeArea', 'name': region })),
+      'url': `${BASE_URL}/transfer/${slug}`,
       'offers': {
         '@type': 'Offer',
         'priceCurrency': 'SAR',
-        'price': '210.00',
-        'description': 'Fixed pricing starting from 210 SAR for standard sedans up to executive SUV choices.'
+        'price': config.price,
+        'description': `Fixed wholesale and consumer retail pricing structure starting from ${config.price} SAR.`
       }
     }
   }
 
-  // Fallback for standard routes
+  // Universal structural layout fallback schema
   return {
     '@context': 'https://schema.org',
     '@type': 'Service',
@@ -197,72 +238,3 @@ export default function TransferRoutePage({ params }) {
                       <thead>
                         <tr>
                           <th>Vehicle</th>
-                          {route.fares.columns.map((col) => (
-                            <th key={col}>{col}</th>
-                          ))}
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {route.fares.rows.map((row) => (
-                          <tr key={row.vehicle}>
-                            <td>{row.vehicle}</td>
-                            {row.prices.map((price, i) => (
-                              <td key={`${row.vehicle}-${i}`} className={styles.priceCell}>{price}</td>
-                            ))}
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                </section>
-              )}
-
-              <section className={styles.contentBlock} id="faq">
-                <h2 className={styles.sectionHeading}>Frequently asked questions</h2>
-                <div className={styles.faqList}>
-                  {route.faqs.map((faq) => (
-                    <details key={faq.question} className={styles.faqItem}>
-                      <summary>{faq.question}</summary>
-                      <p>{faq.answer}</p>
-                    </details>
-                  ))}
-                </div>
-              </section>
-            </article>
-
-            <aside className={styles.sidebar}>
-              <div className={styles.sideCard}>
-                <p className={styles.sideLabel}>Book now</p>
-                <h3 className={styles.sideTitle}>{route.from} → {route.to}</h3>
-                <p className={styles.sideText}>Fixed fare · Flight tracking · Meet & greet</p>
-                <Link href={route.searchHref} className={styles.primaryBtn}>
-                  Search vehicles
-                </Link>
-                <a
-                  href="https://wa.me"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.sideWhatsapp}
-                >
-                  WhatsApp +966 53 392 4547
-                </a>
-              </div>
-
-              {route.related?.length > 0 && (
-                <div className={styles.sideCard}>
-                  <p className={styles.sideLabel}>Related</p>
-                  <ul className={styles.relatedList}>
-                    {route.related.map((item) => (
-                      <li key={item.href}>
-                        <Link href={item.href}>{item.label}</Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-            </aside>
-          </div>
-        </div>
-      </main>
-
-      <PortalFooter />
