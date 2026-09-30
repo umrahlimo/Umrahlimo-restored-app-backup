@@ -83,7 +83,7 @@ function buildServiceSchema(route, slug) {
     }
   }
 
-  // Fallback for standard routes (Syntax fully corrected here)
+  // Fallback for standard routes
   return {
     '@context': 'https://schema.org',
     '@type': 'Service',
@@ -251,7 +251,7 @@ export default function TransferRoutePage({ params }) {
               {route.related?.length > 0 && (
                 <div className={styles.sideCard}>
                   <p className={styles.sideLabel}>Related</p>
-                  <ul className={relatedList}>
+                  <ul className={styles.relatedList}>
                     {route.related.map((item) => (
                       <li key={item.href}>
                         <Link href={item.href}>{item.label}</Link>
@@ -265,3 +265,4 @@ export default function TransferRoutePage({ params }) {
         </div>
       </main>
 
+      <PortalFooter />
