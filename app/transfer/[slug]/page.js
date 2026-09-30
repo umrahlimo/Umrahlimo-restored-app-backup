@@ -11,7 +11,7 @@ import {
 import { buildFaqSchema } from '../../../lib/seo/schemas'
 import styles from '../transfer.module.css'
 
-const BASE_URL = 'https://www.umrahlimo.com'
+const BASE_URL = 'https://umrahlimo.com'
 
 export function generateStaticParams() {
   return TRANSFER_ROUTE_SLUGS
@@ -22,6 +22,24 @@ export function generateMetadata({ params }) {
   if (!route) {
     return { title: 'Transfer | UmrahLimo' }
   }
+
+  // FORCE HIGH-INTENT SEO TITLES NATIVELY FOR THE JEDDAH ROUTE
+  if (params.slug === 'jeddah-airport-to-makkah') {
+    return {
+      title: 'Jeddah Airport to Makkah Private Transfer | Luxury & Family Vans',
+      description: 'Pre-book reliable, fixed-fare private airport transfers from Jeddah Airport (JED) to Makkah. Premium VIP limos, GMC Yukons, and family vans. 24/7 flight tracking.',
+      keywords: ['Jeddah Airport to Makkah Private Transfer'],
+      alternates: { canonical: `${BASE_URL}/transfer/jeddah-airport-to-makkah` },
+      openGraph: {
+        title: 'Jeddah Airport to Makkah Private Transfer | Luxury & Family Vans',
+        description: 'Pre-book reliable, fixed-fare private airport transfers from Jeddah Airport (JED) to Makkah.',
+        url: `${BASE_URL}/transfer/jeddah-airport-to-makkah`,
+        type: 'website',
+      },
+    }
+  }
+
+  // Fallback defaults for all other platform route slugs
   return {
     title: route.title,
     description: route.metaDescription,
@@ -36,7 +54,36 @@ export function generateMetadata({ params }) {
   }
 }
 
-function buildServiceSchema(route) {
+function buildServiceSchema(route, slug) {
+  // UPGRADE THE BASIC GENERIC SERVICE MARKUP TO AN EXPLICIT TAXI SERVICE OBJECT FOR JEDDAH
+  if (slug === 'jeddah-airport-to-makkah') {
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'TaxiService',
+      'name': 'UmrahLimo Jeddah to Makkah Transfer',
+      'description': 'Private airport transfer and limo services from King Abdulaziz International Airport (JED) to Makkah hotels.',
+      'provider': {
+        '@type': 'LocalBusiness',
+        'name': 'UmrahLimo',
+        'url': BASE_URL,
+        'telephone': '+966 53 392 4547'
+      },
+      'providerMobility': 'dynamic',
+      'areaServed': [
+        { '@type': 'AdministrativeArea', 'name': 'Jeddah' },
+        { '@type': 'AdministrativeArea', 'name': 'Makkah' }
+      ],
+      'url': `${BASE_URL}/transfer/jeddah-airport-to-makkah`,
+      'offers': {
+        '@type': 'Offer',
+        'priceCurrency': 'SAR',
+        'price': '210.00',
+        'description': 'Fixed pricing starting from 210 SAR for standard sedans up to executive SUV choices.'
+      }
+    }
+  }
+
+  // Fallback for standard routes
   return {
     '@context': 'https://schema.org',
     '@type': 'Service',
@@ -67,7 +114,7 @@ export default function TransferRoutePage({ params }) {
       <Script
         id={`service-schema-${route.slug}`}
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(buildServiceSchema(route)) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(buildServiceSchema(route, params.slug)) }}
       />
 
       <PortalNavbar forceDark />
@@ -89,7 +136,7 @@ export default function TransferRoutePage({ params }) {
               Book this route
             </Link>
             <a
-              href="https://wa.me/966533924547"
+              href="https://wa.me"
               target="_blank"
               rel="noopener noreferrer"
               className={styles.secondaryBtn}
@@ -192,7 +239,7 @@ export default function TransferRoutePage({ params }) {
                   Search vehicles
                 </Link>
                 <a
-                  href="https://wa.me/966533924547"
+                  href="https://wa.me"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.sideWhatsapp}
@@ -219,6 +266,6 @@ export default function TransferRoutePage({ params }) {
       </main>
 
       <PortalFooter />
-    </div>
-  )
-}
+
+
+
